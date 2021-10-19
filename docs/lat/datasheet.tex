@@ -1,0 +1,352 @@
+\documentclass[a4paper, 11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{tgschola}
+\usepackage{longtable}
+\setlength{\columnsep}{1cm}
+
+\title{Data-sheet}
+\author{Omar Amer}
+\date{August 2021}
+
+\begin{document}
+
+\maketitle
+
+
+\section{General Description}
+RISC-Like pipelined general purpose processor with dedicated graphics and sound units with 8 32-bit registers and 128 Mb of ram with integrated VGA support and ICSP, programmed using custom, feature rich assembly.
+\subsection{Ports}
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Name   & Width  & Description        \\
+        \hline
+        Input  & 32-bit & User input port    \\
+        \hline
+        Output & 32-bit & Output port        \\
+        \hline
+        CLK    & 1-bit  & Clock              \\
+        \hline
+        RST    & 1-bit  & Asynchronous reset \\
+        \hline
+    \end{tabular}
+\end{center}
+\subsection{Registers}
+\begin{center}
+    \begin{tabular}{|c|l|}
+        \hline
+        Register & Description          \\
+        \hline
+        AX       & Accumulator Register \\
+        \hline
+        BX       & Base Register        \\
+        \hline
+        CX       & Counter Register     \\
+        \hline
+        DX       & Data Register        \\
+        \hline
+        GX       & Graphics Register    \\
+        \hline
+        EX       & Extra Register       \\
+        \hline
+        EY       & Extra Register       \\
+        \hline
+        EZ       & Extra Register       \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Instruction Set}
+\begin{center}
+    \begin{tabular}{|l|p{27em}|}
+        \hline
+        \textbf{Instruction} & \textbf{Description}                                                                \\
+        \hline
+        NOP                  & No operation                                                                        \\
+        \hline
+        MOV dst, src/imm     & Moves data from src/imm to dst                                                      \\
+        \hline
+        NOT reg              & Bit-wise NOT                                                                        \\
+        \hline
+        AND dst, src/imm     & Bit-wise AND, result stored in dst.                                                 \\
+        \hline
+        OR dst, src/imm      & Bit-wise OR, result stored in dst                                                   \\
+        \hline
+        XOR dst, src/imm     & Bit-wise XOR, result stored in dst                                                  \\
+        \hline
+        XNOR dst, src/imm    & Bit-wise XNOR, result stored in dst                                                 \\
+        \hline
+        NOR dst, src/imm     & Bit-wise NOR, result stored in dst                                                  \\
+        \hline
+        NAND dst, src/imm    & Bit-wise NAND, result stored in dst                                                 \\
+        \hline
+        SLL reg, imm         & Logical shift LEFT, shifts \textbf{\textit{reg}} content by \textbf{\textit{imm}}.  \\
+        \hline
+        SRL reg, imm         & Logical shift RIGHT, shifts \textbf{\textit{reg}} content by \textbf{\textit{imm}}. \\
+        \hline
+        INC reg              & Increment reg                                                                       \\
+        \hline
+        DEC reg              & Decrement reg                                                                       \\
+        \hline
+        OUT reg/imm          & Output lower 8-bits of reg on port                                                                  \\
+        \hline
+        IN reg               & Take input from port and place data into reg                                        \\
+        \hline
+        ADD dst, src/imm     & ADD src/imm + dst, result stored in dst                                             \\
+        \hline
+        SUB dst, src/imm     & SUB dst - src/imm, result stored in dst                                             \\
+        \hline
+        MUL dst, src/imm     & MUL src/imm * dst, result stored in EX:EY                                           \\
+        \hline
+        DIV dst, src         & DIV dst/src, result stored in dst                                                   \\
+        \hline
+        PUSH reg/imm         & Push reg/imm onto stack                                                             \\
+        \hline
+        POP reg              & Pops stack top into reg                                                             \\
+        \hline
+        CMP reg1, reg2       & Performs reg1 - reg2, without changing register values                              \\
+        \hline
+        JMP [addr]           & Unconditional jump to [addr]                                                        \\
+        \hline
+        JZ [addr]            & Jump if zero flag = 1 to [addr]                                                     \\
+        \hline
+        JNZ [addr]           & Jump if zero flag = 0 to [addr]                                                     \\
+        \hline
+        JEQ [addr]           & Jump if \emph{equal}, i.e: zero flag = 1 to [addr]                                  \\
+        \hline
+        JNEQ [addr]          & Jump if \emph{not equal}, i.e: zero flag = 0 to [addr]                              \\
+        \hline
+        JG [addr]            & Jump if \emph{greater than}, i.e: sign flag = 0 \& zero flag = 0 to [addr]          \\
+        \hline
+        JL [addr]            & Jump if \emph{less than}, i.e: sign flag = 1 zero flag = 0 to [addr]                \\
+        \hline
+        JGE [addr]           & Jump if \emph{greater than or equal}, i.e: sign flag = 0 or zero flag = 1 to [addr] \\
+        \hline
+        JLE [addr]           & Jump if \emph{less than or equal}, i.e: sign flag = 1 or zero flag = 1 to [addr]    \\
+        \hline
+        LD reg, [addr]       & Load data from memory [addr] to reg                                                 \\
+        \hline
+        ST reg, [addr]       & Store data to memory [addr] from reg                                                \\
+        \hline
+        GRA                  & ?????                                                                               \\
+        \hline
+        SND                  & ?????                                                                               \\
+        \hline
+    \end{tabular}
+\end{center}
+\subsection{Instruction Word}
+\subsubsection{Type A Instructions (One / Zero Operand)}
+By hex instruction, we mean the full range of possible operand combinations for the given op code. for example,
+the op code \it{31} means \textbf{PUSH BX}, \it{30} means \textbf{PUSH AX}, and \it{3F} means
+\textbf{PUSH EZ}
+
+\begin{center}
+
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Instruction} & \textbf{OP Code (binary)} & \textbf{reg} & \textbf{Hex Instruction} \\
+        \hline
+        NOP                  & 000000                    &              & 00:07                    \\
+        \cline{1-2}
+        \cline{4-4}
+        NOT reg              & 000001                    &              & 08:0F                    \\
+        \cline{1-2}
+        \cline{4-4}
+        INC reg              & 000010                    &              & 10:17                    \\
+        \cline{1-2}
+        \cline{4-4}
+        DEC reg              & 000011                    & (000:111)    & 18:1F                    \\
+        \cline{1-2}
+        \cline{4-4}
+        IN reg               & 000100                    &              & 20:27                    \\
+        \cline{1-2}
+        \cline{4-4}
+        OUT reg              & 000101                    &              & 28:2F                    \\
+        \cline{1-2}
+        \cline{4-4}
+        PUSH reg             & 000110                    &              & 30:37                    \\
+        \cline{1-2}
+        \cline{4-4}
+        POP reg              & 000111                    &              & 38:3F                    \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{Type B Instructions}
+
+\begin{center}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Instruction} & \textbf{OP Code} & \textbf{Operand 1} & \textbf{Operand 2} & \textbf{Hex Instruction} \\
+        \hline
+        MOV dst, src         & 001000           & (000:111)          & (000:111)          & 200:23F                  \\
+        \hline
+        UNUSED               & 001001           &                    &                    &                          \\
+        \hline
+        CMP reg1, reg2       & 001010           & (000:111)          & (000:111)          & 280:2BF                  \\
+        \hline
+        AND dst, src         & 001011           & (000:111)          & (000:111)          & 2CO:2FF                  \\
+        \hline
+        OR dst, src          & 001100           & (000:111)          & (000:111)          & 300:33F                  \\
+        \hline
+        XOR dst, src         & 001101           & (000:111)          & (000:111)          & 340:37F                  \\
+        \hline
+        XNOR dst, src        & 001110           & (000:111)          & (000:111)          & 380:3BF                  \\
+        \hline
+        NOR dst, src         & 001111           & (000:111)          & (000:111)          & 3CO:3FF                  \\
+        \hline
+        NAND dst, src        & 010000           & (000:111)          & (000:111)          & 400:43F                  \\
+        \hline
+        ADD dst, src         & 010001           & (000:111)          & (000:111)          & 440:47F                  \\
+        \hline
+        SUB dst, src         & 010010           & (000:111)          & (000:111)          & 480:4BF                  \\
+        \hline
+        MUL dst, src         & 010011           & (000:111)          & (000:111)          & 4CO:4FF                  \\
+        \hline
+        DIV dst, src         & 010100           & (000:111)          & (000:111)          & 500:53F                  \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{Type C Instructions}
+\begin{center}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Instruction} & \textbf{OP Code} & \textbf{Operand 1} & \textbf{Operand 2} & \textbf{Hex Instruction} \\
+        \hline
+        MOV reg, imm32       & 010101           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        CMP reg, imm32       & 010110           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        AND reg, imm32       & 010111           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        OR reg, imm32        & 011000           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        XOR reg, imm32       & 011001           & (000:111)          & 32-bit immediate   &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        XNOR reg, imm32      & 011010           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        NOR reg, imm32       & 011011           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        NAND reg, imm32      & 011100           & (000:111)          &                    &                          \\
+        \hline
+        SLL reg, imm5        & 011101           & (000:111)          & 5-bit immediate    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        SRL reg, imm5        & 011110           & (000:111)          &                    &                          \\
+        \hline
+        ADD reg, imm32       & 011111           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        SUB reg, imm32       & 100000           & (000:111)          & 32-bit immediate   &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        MUL reg, imm32       & 100001           & (000:111)          &                    &                          \\
+        \cline{1-3}
+        \cline{5-5}
+        DIV reg, imm32       & 100010           & (000:111)          &                    &                          \\
+        \hline
+        LD reg, imm11        & 110000           & (000:111)          & 11-bit immediate   &                          \\
+        \hline
+        ST reg, imm11        & 110001           & (000:111)          & 11-bit immediate   &                          \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{Type D Instructions}
+\begin{center}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Instruction} & \textbf{OP Code} & \textbf{Operand 1} \\
+        \hline
+        OUT imm32            & 100011           &                    \\
+        \cline{1-2}
+        PUSH imm32           & 100100           & 32-bit immediate   \\
+        \hline
+        JMP imm16            & 100101           &                    \\
+        \cline{1-2}
+        JZ imm16             & 100110           &                    \\
+        \cline{1-2}
+        JNZ imm16            & 100111           &                    \\
+        \cline{1-2}
+        JEQ imm16            & 101000           &                    \\
+        \cline{1-2}
+        JNEQ imm16           & 101001           & 16-bit immediate   \\
+        \cline{1-2}
+        JG imm16             & 101010           &                    \\
+        \cline{1-2}
+        JL imm16             & 101011           &                    \\
+        \cline{1-2}
+        JGE imm16            & 101100           &                    \\
+        \cline{1-2}
+        JLE imm16            & 101101           &                    \\
+        \cline{1-2}
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{Type X Instructions}
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Instruction} & \textbf{OP Code} \\
+        \hline
+        GRA                  & 101110           \\
+        \hline
+        SND                  & 101111           \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{Instruction Size}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Type} & \textbf{OP Code} & \textbf{Operand 1} & \textbf{Operand 2} \\
+        \hline
+        Type A        &                  & 3 bits             & ---                \\
+        \cline{1-1}
+        \cline{3-4}
+        Type B        &                  & 3 bits             & 3 bits             \\
+        \cline{1-1}
+        \cline{3-4}
+        Type C        & 6 bits           & 3 bits             & 32 bits            \\
+        \cline{1-1}
+        \cline{3-4}
+        Type D        &                  & 32 bits            & ---                \\
+        \cline{1-1}
+        \cline{3-4}
+        Type X        &                  &                    &                    \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Language Rules}
+\paragraph{The VP uses a custom variant of assembly language called chasm. its rules are
+shown below:}
+\begin{itemize}
+    \item Chasm is case-insensitve.
+    \item Each line of code consists of a either:
+     \begin{itemize}
+        \item a mnemonic
+        \item a mnemonic followed by a single operand
+        \item a mnemonic followed by an operand, a colon "," ,and another operand.
+    \end{itemize}
+    \item The first operand is always a register.
+    \item All numbers must begin with a 0?, where ? corresponds to the base of the number,
+    for example, 0x53A is hex 53A, 0d123 is decimal 123, and 0b11011 is binary 11011.
+    \item An instruction must have one space after the mnemonic, and one space after the colon (if applicable)
+\end{itemize}
+
+\end{document}
+

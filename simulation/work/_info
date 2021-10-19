@@ -1,0 +1,291 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/20.1
+vALU
+!s110 1634562827
+!i10b 1
+!s100 1f@HGe@3YzOKR78]RVdhG0
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ii0`QLNME^I^2IP]AVfe=V2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dG:/VP/simulation
+w1634562716
+8G:/VP/hdl/ALU/ALU.v
+FG:/VP/hdl/ALU/ALU.v
+!i122 590
+L0 4 107
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1634562826.000000
+!s107 G:/VP/hdl/ALU/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ALU/ALU.v|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@a@l@u
+vctr
+!s110 1634672376
+!i10b 1
+!s100 K`YZzeS>HidYAzh;kLf@f0
+R0
+IKFOf19XP3]L^XU4bzMc?z2
+R1
+R2
+w1634672368
+8G:/VP/hdl/Mem/ctr.v
+FG:/VP/hdl/Mem/ctr.v
+!i122 613
+L0 4 47
+R3
+r1
+!s85 0
+31
+!s108 1634672376.000000
+!s107 G:/VP/hdl/Mem/ctr.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/ctr.v|
+!i113 1
+R4
+R5
+vctrl
+!s110 1634671378
+!i10b 1
+!s100 TVV0]6Z]Ed2ZIc36gTEB42
+R0
+IlzQN_zo:H1QLcm5Y^:mmi1
+R1
+R2
+w1634671371
+8G:/VP/hdl/ctrlUnit.v
+FG:/VP/hdl/ctrlUnit.v
+!i122 610
+L0 5 741
+R3
+r1
+!s85 0
+31
+!s108 1634671378.000000
+!s107 G:/VP/hdl/ctrlUnit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ctrlUnit.v|
+!i113 1
+R4
+R5
+vdcd3x8
+Z6 !s110 1634238682
+!i10b 1
+!s100 jlPlo=PJieJhPVgM3o9_R0
+R0
+I>l2N051dSdB<G>^zAY9eZ2
+R1
+R2
+w1634238070
+8G:/VP/hdl/regFile/dcd3x8.v
+FG:/VP/hdl/regFile/dcd3x8.v
+!i122 583
+L0 5 23
+R3
+r1
+!s85 0
+31
+Z7 !s108 1634238682.000000
+!s107 G:/VP/hdl/regFile/dcd3x8.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/dcd3x8.v|
+!i113 1
+R4
+R5
+vFA
+R6
+!i10b 1
+!s100 VGAOCH9L9;@9<;>b3?C0?2
+R0
+IgHoz:>o6W<>I3dEkE>`PJ1
+R1
+R2
+w1628049189
+8G:/VP/hdl/ALU/FA.v
+FG:/VP/hdl/ALU/FA.v
+!i122 582
+L0 1 11
+R3
+r1
+!s85 0
+31
+Z8 !s108 1634238681.000000
+!s107 G:/VP/hdl/ALU/FA.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ALU/FA.v|
+!i113 1
+R4
+R5
+n@f@a
+virom
+!s110 1634238681
+!i10b 1
+!s100 UEjQk@Xb]LaFhknT^6mjB3
+R0
+InQ_9en@?=TY;4^l[L8WiM0
+R1
+R2
+w1634171239
+8G:/VP/hdl/Mem/irom.v
+FG:/VP/hdl/Mem/irom.v
+!i122 580
+L0 4 18
+R3
+r1
+!s85 0
+31
+R8
+!s107 G:/VP/hdl/Mem/irom.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/irom.v|
+!i113 1
+R4
+R5
+vram
+!s110 1634238683
+!i10b 1
+!s100 nl5a>690hl6fkDES0JnMF3
+R0
+I9YcC?Cj0N<JRm>1X@T4]P3
+R1
+R2
+w1634170154
+8G:/VP/hdl/Mem/ram.v
+FG:/VP/hdl/Mem/ram.v
+!i122 588
+L0 5 31
+R3
+r1
+!s85 0
+31
+!s108 1634238683.000000
+!s107 G:/VP/hdl/Mem/ram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/ram.v|
+!i113 1
+R4
+R5
+vreg32
+!s110 1629399832
+!i10b 1
+!s100 4d2=Z:LlOVh[dZTUR6_;l1
+R0
+I?REjD??6jR0;6Cb?fX:cL3
+R1
+R2
+w1629399825
+Z9 8G:/VP/hdl/regFile/reg.v
+Z10 FG:/VP/hdl/regFile/reg.v
+!i122 22
+L0 4 23
+R3
+r1
+!s85 0
+31
+!s108 1629399832.000000
+Z11 !s107 G:/VP/hdl/regFile/reg.v|
+Z12 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/reg.v|
+!i113 1
+R4
+R5
+vregFile
+R6
+!i10b 1
+!s100 1R2_8<2dnO3[BBKHlKNI[0
+R0
+I6^R3?<1KH=Z4]C176>FZf2
+R1
+R2
+w1634238001
+8G:/VP/hdl/regFile/regFile.v
+FG:/VP/hdl/regFile/regFile.v
+!i122 585
+L0 5 87
+R3
+r1
+!s85 0
+31
+R7
+!s107 G:/VP/hdl/regFile/regFile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/regFile.v|
+!i113 1
+R4
+R5
+nreg@file
+vregGen
+R6
+!i10b 1
+!s100 >l?1Ti@HTkFF7l6fN2Zd]3
+R0
+ILGIhJC4Dz<<e3DCL@OS?]0
+R1
+R2
+w1633517365
+R9
+R10
+!i122 584
+L0 4 25
+R3
+r1
+!s85 0
+31
+R7
+R11
+R12
+!i113 1
+R4
+R5
+nreg@gen
+vtop
+!s110 1634644766
+!i10b 1
+!s100 YCeDgfXA=ae8VSCeATJmX2
+R0
+In^DYCQJXhfiQjo]JiEJc;0
+R1
+R2
+w1634644760
+8G:/VP/hdl/topProc.v
+FG:/VP/hdl/topProc.v
+!i122 603
+L0 7 146
+R3
+r1
+!s85 0
+31
+!s108 1634644766.000000
+!s107 G:/VP/hdl/topProc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/topProc.v|
+!i113 1
+R4
+R5
+vtsb
+R6
+!i10b 1
+!s100 1Kk934`eelhelR3I2_X=:2
+R0
+IzmhfQ<RfUE=G66`[Kin153
+R1
+R2
+w1628526795
+8G:/VP/hdl/regFile/tsb.v
+FG:/VP/hdl/regFile/tsb.v
+!i122 586
+L0 5 12
+R3
+r1
+!s85 0
+31
+R7
+!s107 G:/VP/hdl/regFile/tsb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/tsb.v|
+!i113 1
+R4
+R5

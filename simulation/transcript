@@ -1,0 +1,1058 @@
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.top
+# vsim -gui work.top 
+# Start time: 23:15:29 on Sep 03,2021
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: omart  Hostname: DESKTOP-G1GIJFL  ProcessID: 12120
+#           Attempting to use alternate WLF file "./wlftav3mb6".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftav3mb6
+# NOT | SRC/DST: REG 0
+# STORE
+# NOP
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# ** Error: (vsim-3043) Unresolved reference to 'isnt'.
+#    Time: 0 ps  Iteration: 0  Instance: /top/ctrl File: G:/VP/hdl/ctrlUnit.v Line: 113
+# ** Error: Unrecognized dataset prefix: sim
+# Error in macro ./../test/topTst.do line 10
+# Unrecognized dataset prefix: sim
+#     while executing
+# "add wave -position end  sim:/top/clk"
+vsim -gui work.top
+# vsim -gui work.top 
+# Start time: 23:15:29 on Sep 03,2021
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# ** Error: (vsim-3043) Unresolved reference to 'isnt'.
+#    Time: 0 ps  Iteration: 0  Instance: /top/ctrl File: G:/VP/hdl/ctrlUnit.v Line: 113
+# Error loading design
+# End time: 23:20:54 on Sep 03,2021, Elapsed time: 0:05:25
+# Errors: 3, Warnings: 1
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Error: No Design Loaded!
+# Error in macro ./../test/topTst.do line 2
+# No Design Loaded!
+#     while executing
+# "restartCmd -nowave"
+#     ("eval" body line 1)
+#     invoked from within
+# "eval restartCmd $args"
+#     (procedure "restart" line 18)
+#     invoked from within
+# "restart -nowave"
+
+do ../test/topTst.do
+# ** Error: No Design Loaded!
+# Error in macro ./../test/topTst.do line 2
+# No Design Loaded!
+#     while executing
+# "restartCmd -nowave"
+#     ("eval" body line 1)
+#     invoked from within
+# "eval restartCmd $args"
+#     (procedure "restart" line 18)
+#     invoked from within
+# "restart -nowave"
+vsim -gui work.top
+# vsim -gui work.top 
+# Start time: 23:21:21 on Sep 03,2021
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: omart  Hostname: DESKTOP-G1GIJFL  ProcessID: 12120
+#           Attempting to use alternate WLF file "./wlftkst9vz".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftkst9vz
+# NOT | SRC/DST: REG 0
+# STORE REG 0AT RAM ADDRESS 1ff
+# NOP
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# NOT | SRC/DST: REG 0
+# STORE REG 0AT RAM ADDRESS 3ff
+# NOP
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 1AT RAM ADDRESS 7ff
+# NOP
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0AT RAM ADDRESS 3ff
+# NOP
+# Compile of ctrlUnit.v was successful.
+vsim -gui work.top
+# End time: 23:26:41 on Sep 03,2021, Elapsed time: 0:05:20
+# Errors: 0, Warnings: 2
+# vsim -gui work.top 
+# Start time: 23:26:41 on Sep 03,2021
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+do ../test/topTst.do
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: omart  Hostname: DESKTOP-G1GIJFL  ProcessID: 12120
+#           Attempting to use alternate WLF file "./wlft4wybta".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft4wybta
+# NOT | SRC/DST: REG 0
+# STORE REG 0AT RAM ADDRESS 3ff
+# NOP
+# Compile of ctrlUnit.v was successful.
+vsim -gui work.top
+# End time: 23:28:10 on Sep 03,2021, Elapsed time: 0:01:29
+# Errors: 0, Warnings: 4
+# vsim -gui work.top 
+# Start time: 23:28:10 on Sep 03,2021
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+do ../test/topTst.do
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: omart  Hostname: DESKTOP-G1GIJFL  ProcessID: 12120
+#           Attempting to use alternate WLF file "./wlft0xwck0".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft0xwck0
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 1ff
+# NOP
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# NOT | SRC/DST: REG 0
+# STORE REG 4 AT RAM ADDRESS 1ff
+# NOP
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of reg.v failed with 1 errors.
+# Compile of ctrlUnit.v was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of reg.v was successful with warnings.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# Loading work.regGen
+# NOT | SRC/DST: REG 0
+# ADDED DATA TO REG: 2
+# STORE REG 0 AT RAM ADDRESS 000
+# ADDED DATA TO REG: 1
+# NOP
+# ADDED DATA TO REG: 2
+# ADDED DATA TO REG: 2
+# Compile of reg.v was successful with warnings.
+# Compile of ctrlUnit.v was successful.
+# 2 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# Loading work.regGen
+# NOT | SRC/DST: REG 0
+# ADDED DATA TO REG: 2 
+# STORE REG 0 AT RAM ADDRESS 000
+# ADDED DATA TO REG: 1 
+# NOP
+# ADDED DATA TO REG: 2 
+# ADDED DATA TO REG: 2 
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# 2 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.regFile
+# Loading work.regGen
+# NOT | SRC/DST: REG 0
+# REG 0:          0
+# REG 0:          0
+# REG 0:          0
+# STORE REG 0 AT RAM ADDRESS 000
+# REG 0:          0
+# REG 0:          0
+# NOP
+# REG 0:          0
+# Compile of regFile.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.regFile
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+run
+# Compile of regFile.v failed with 1 errors.
+# Compile of regFile.v was successful.
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of irom.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.irom
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of irom.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.irom
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+run
+run
+run
+run
+run
+run
+run
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+run
+# Compile of irom.v was successful.
+run
+
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.irom
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+run
+run
+# Compile of ctr.v failed with 3 errors.
+# Compile of ctr.v was successful.
+run
+
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of topProc.v was successful.
+# Compile of ctr.v failed with 1 errors.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+run
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+run
+run
+run
+run
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+#  Trace back: can't set "vsimMem(memgotodlgaddress)": invalid command name ".memgotoaddr.bb.ok"
+#     while executing
+# ".vcop Eval {Memdata::GotoAddr .main_pane.memdata.interior.cs.body .main_pane.memdata.interior.cs.body.datapane.dpane1.tframe1}"
+#     (menu invoke)
+#    <2:C:/intelFPGA/20.1/modelsim_ase/win32aloem/tk8.6/bgerror.tcl:106: ::tkerror {can't set "vsimMem(memgotodlgaddress)": invalid command name ".memgotoaddr.bb.ok"}
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+run
+run
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# ** Error (suppressible): (vsim-3389) Port 'rw' not found in the connected module (4th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /top/regFile File: G:/VP/hdl/topProc.v Line: 66
+# ** Error: Unrecognized dataset prefix: sim
+# Error in macro ./../test/topTst.do line 10
+# Unrecognized dataset prefix: sim
+#     while executing
+# "add wave -position end  sim:/top/clk"
+vsim -gui work.top
+# vsim -gui work.top 
+# Start time: 23:28:10 on Sep 03,2021
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# ** Error (suppressible): (vsim-3389) Port 'rw' not found in the connected module (4th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /top/regFile File: G:/VP/hdl/topProc.v Line: 66
+# Error loading design
+# End time: 00:10:43 on Sep 04,2021, Elapsed time: 0:42:33
+# Errors: 3, Warnings: 1
+# Compile of topProc.v was successful.
+vsim -gui work.top
+# vsim -gui work.top 
+# Start time: 00:11:25 on Sep 04,2021
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: omart  Hostname: DESKTOP-G1GIJFL  ProcessID: 12120
+#           Attempting to use alternate WLF file "./wlftsx10a5".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftsx10a5
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+# Compile of ctrlUnit.v was successful.
+run
+run
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 2 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# NOP
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# NOP
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# NOP
+run
+run
+force -freeze sim:/top/rst 1 0
+run
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+# Compile of ctr.v was successful.
+force -freeze sim:/top/rst 1 0
+
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of ctrlUnit.v was successful.
+run
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+force -freeze sim:/top/rst St1 0
+run
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+force -freeze sim:/top/rst 1 0
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# NOT | SRC/DST: REG 0
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+# NOT | SRC/DST: REG 0
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+run
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# Compile of irom.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.irom
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+run
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+force -freeze sim:/top/rst St1 0
+run
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+run
+force -freeze sim:/top/rst St0 0
+run
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+force -freeze sim:/top/rst St0 0
+force -freeze sim:/top/rst St0 0
+do ../test/topTst.do
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+run
+# STORE REG 0 AT RAM ADDRESS 000
+# NOP
+run
+# Compile of topProc.v was successful.
+# Compile of ctr.v failed with 1 errors.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# NOP
+run
+# NOT | SRC/DST: REG 0
+run
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+# Compile of ctr.v failed with 1 errors.
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# NOP
+run
+# NOT | SRC/DST: REG 0
+run
+run
+run
+run
+run
+# Compile of ctr.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctr
+# NOT | SRC/DST: REG 0
+# RESETTING ROM
+# NOP
+run
+# NOT | SRC/DST: REG 0
+run
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v failed with 1 errors.
+# Compile of ram.v was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of topProc.v was successful.
+# Compile of ctr.v was successful.
+# Compile of irom.v was successful.
+# Compile of ALU.v was successful.
+# Compile of FA.v was successful.
+# Compile of dcd3x8.v was successful.
+# Compile of reg.v was successful with warnings.
+# Compile of regFile.v was successful.
+# Compile of tsb.v was successful.
+# Compile of ctrlUnit.v was successful.
+# Compile of ram.v was successful.
+# 11 compiles, 0 failed with no errors.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.top
+# Loading work.ctr
+# Loading work.irom
+# Loading work.ctrl
+# Loading work.regFile
+# Loading work.dcd3x8
+# Loading work.tsb
+# Loading work.regGen
+# Loading work.ALU
+# Loading work.FA
+# Loading work.ram
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# NOP
+run
+# NOP
+# NOT | SRC/DST: REG 0
+run
+# STORE REG 0 AT RAM ADDRESS 000
+run
+# NOP
+run
+run
+do ../test/topTst.do
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# NOP
+run
+# NOP
+# NOT | SRC/DST: REG 0
+run
+# STORE REG 0 AT RAM ADDRESS 3ff
+run
+# NOP
+run
+do ../test/topTst.do
+# RESETTING ROM
+# NOT | SRC/DST: REG 0
+# NOP
+run
+# NOP
+# NOT | SRC/DST: REG 0
+run
+# STORE REG 0 AT RAM ADDRESS 3ff
+# Compile of ctrlUnit.v was successful.
+do ../test/topTst.do
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.ctrl
+# RESETTING ROM
+# RESETTING CTRL UNIT
+# NOT | SRC/DST: REG 0
+# RESETTING CTRL UNIT
+# NOP
+run
+# NOP
+# NOT | SRC/DST: REG 0
+run
+# STORE REG 0 AT RAM ADDRESS 3ff
+run
+# NOP
+run
+do ../test/topTst.do
+# RESETTING ROM
+# RESETTING CTRL UNIT
+# NOT | SRC/DST: REG 0
+# RESETTING CTRL UNIT
+# NOP
+run
+# NOP
+# NOT | SRC/DST: REG 0
+run
+# STORE REG 0 AT RAM ADDRESS 3ff
+run
+# NOP
+# End time: 01:09:48 on Sep 04,2021, Elapsed time: 0:58:23
+# Errors: 0, Warnings: 1
