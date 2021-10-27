@@ -1,44 +1,9 @@
-G:/VP/hdl/ALU/FA.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/FA.v
+G:/VP/hdl/regFile/dcd3x8.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/dcd3x8.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module FA
+-- Compiling module dcd3x8
 
 Top level modules:
-	FA
-
-} {} {}} G:/VP/hdl/Mem/irom.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/irom.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module irom
-
-Top level modules:
-	irom
-
-} {} {}} G:/VP/hdl/regFile/tsb.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/tsb.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module tsb
-
-Top level modules:
-	tsb
-
-} {} {}} G:/VP/hdl/Mem/ram.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ram.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ram
-
-Top level modules:
-	ram
-
-} {} {}} G:/VP/hdl/regFile/reg.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/reg.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module regGen
-
-Top level modules:
-	regGen
-
-} {} {}} G:/VP/hdl/Mem/ctr.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ctr.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ctr
-
-Top level modules:
-	ctr
+	dcd3x8
 
 } {} {}} G:/VP/hdl/regFile/regFile.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/regFile.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -47,12 +12,47 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	regFile
 
-} {} {}} G:/VP/hdl/regFile/dcd3x8.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/dcd3x8.v
+} {} {}} G:/VP/hdl/regFile/reg.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/reg.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module dcd3x8
+-- Compiling module regGen
 
 Top level modules:
-	dcd3x8
+	regGen
+
+} {} {}} G:/VP/hdl/Mem/irom.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/irom.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module irom
+
+Top level modules:
+	irom
+
+} {} {}} G:/VP/hdl/Mem/ram.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ram.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ram
+
+Top level modules:
+	ram
+
+} {} {}} G:/VP/hdl/topProc.v {1 {vlog -work work -stats=none G:/VP/hdl/topProc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} G:/VP/hdl/Mem/ctr.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ctr.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ctr
+
+Top level modules:
+	ctr
+
+} {} {}} G:/VP/hdl/ALU/FA.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/FA.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FA
+
+Top level modules:
+	FA
 
 } {} {}} G:/VP/hdl/ALU/ALU.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/ALU.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -61,11 +61,25 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	ALU
 
-} {} {}} G:/VP/hdl/topProc.v {1 {vlog -work work -stats=none G:/VP/hdl/topProc.v
+} {} {}} G:/VP/hdl/jmpCtrl.v {1 {vlog -work work -stats=none G:/VP/hdl/jmpCtrl.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module top
+-- Compiling module jmpCtrl
 
 Top level modules:
-	top
+	jmpCtrl
+
+} {} {}} G:/VP/hdl/ctrlUnit.v {1 {vlog -work work -stats=none G:/VP/hdl/ctrlUnit.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ctrl
+
+Top level modules:
+	ctrl
+
+} {} {}} G:/VP/hdl/regFile/tsb.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/tsb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tsb
+
+Top level modules:
+	tsb
 
 } {} {}}

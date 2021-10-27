@@ -1,8 +1,15 @@
-* cmp needs implemntaion
-* must insert space after comma in 2 operand commands
-* must add 2 nops before starting the program
-* implement mul
-* implement div
-* implement shifting
-* compare implemntation
 
+
+* Implemetnation
+mul
+div
+shifting
+labels
+
+*bugs
+space after nop fucks everything up.
+
+*hardware
+2 nops are required
+
+*assembler

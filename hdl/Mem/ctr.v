@@ -6,10 +6,12 @@ module ctr #(parameter width  = 10) (
     input rst,
     input en,
     input dir, // 0 -> Decrement , 1 -> Increment
+    input jmp,
+    input [width-1:0] jmpLoc,
     output reg [width-1:0] ctrOut
 );
 
-//reg [9:0] ctrOutAux = 10'b0000000000 ;
+
 
 reg [width-1:0] ctrOutAux = {(width+1){1'b1}};
 
@@ -37,6 +39,10 @@ always @(negedge clk) begin
         end
         else begin
             ctrOutAux <= ctrOutAux - 1;
+        end
+
+        if(jmp) begin
+            ctrOutAux <= jmpLoc;
         end
 
     end

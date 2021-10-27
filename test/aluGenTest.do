@@ -66,10 +66,10 @@ force -freeze sim:/ALU/opSel 16#A 0
 run
 
 # 12. MUL
-force -freeze sim:/ALU/opSel 16#B 0
-run
-
-# 13. DIV
-force -freeze sim:/ALU/opSel 16#C 0
-run
+#force -freeze sim:/ALU/opSel 16#B 0
+#run
+#
+## 13. DIV
+#force -freeze sim:/ALU/opSel 16#C 0
+#run
 

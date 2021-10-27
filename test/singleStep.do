@@ -28,14 +28,13 @@ add wave -position end -radix hex -color green sim:/top/memMuxAddrOut
 
 add wave -position end -radix hex -color magenta sim:/top/databus1
 
-
 add wave -position end  sim:/top/progCtrjmp
 
 add wave -position end  sim:/top/zeroF
 add wave -position end  sim:/top/signF
 
 # Reset the processor:
-force -freeze sim:/top/extClk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/top/clk 1 0, 0 {50 ps} -r 100
 
 force -freeze sim:/top/rst 1 0
 run
@@ -44,3 +43,4 @@ run
 
 # Load Instructions into IROM:
 mem load -i G:/VP/simulation/FIBONACCI.mem /top/instRom/rom
+

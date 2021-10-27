@@ -23,7 +23,10 @@ module ctrl (
     output reg resAddr,
     output reg ld,
     output reg sto,
-    output reg pushPop
+    output reg pushPop,
+    output reg jmp,
+    output reg [3:0] jmpType,
+    output reg hlt
     );
 
 
@@ -105,8 +108,53 @@ module ctrl (
 `define LD   6'b110000
 `define ST   6'b110001
 
+`define JMP  6'b100101
+`define JZ   6'b100110
+`define JNZ  6'b100111
+`define JEQ  6'b101000
+`define JNEQ 6'b101001
+`define JG   6'b101010
+`define JL   6'b101011
+`define JGE  6'b101100
+`define JLE  6'b101101
+
+
+`define ZERO          0
+`define NOTZERO       1
+`define EQUAL         2
+`define NOTEQUAL      3
+`define GREATER       4
+`define LESS          5
+`define GREATEQUAL    6
+`define LESSEQUAL     7
+`define CARRY         8
+`define NOTCARRY      9
+`define UNCONDITIONAL 10
+
+`define HLT 6'b111111
+
 // LOGIC
 always @(posedge clk, posedge rst) begin
+
+        waddr = 0;
+        raddr1 = 0;
+        raddr2 = 0;
+        aluOpSel = 0;
+        aluOp1 = 0;
+        aluOp2 = 0;
+        imm = 0;
+        sto = 0 ;
+        memAddrSel = 0;
+        memAddr = 11'b0;
+        stk = 0;
+        ramWen = 1;
+        resAddr = 0;
+        ld = 0;
+        pushPop = 0;
+        jmp = 0;
+        jmpType = `UNCONDITIONAL;
+        hlt = 0;
+
     if(rst) begin
         $display("RESETTING CTRL UNIT");
         waddr = 0;
@@ -143,6 +191,26 @@ always @(posedge clk, posedge rst) begin
         resAddr = 0;
         ld = 0;
         pushPop = 0;
+    end
+
+    `HLT: begin
+        $display("EXECUTION HALTED.");
+        waddr = 0;
+        raddr1 = 0;
+        raddr2 = 0;
+        aluOpSel = 0;
+        aluOp1 = 0;
+        aluOp2 = 0;
+        imm = 0;
+        sto = 0 ;
+        memAddrSel = 0;
+        memAddr = 11'b0;
+        stk = 0;
+        ramWen = 0;
+        resAddr = 0;
+        ld = 0;
+        pushPop = 0;
+        hlt = 1'b1;
     end
 
     `NOT: begin
@@ -318,7 +386,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `MOVI: begin
-        $display("MOVING IMM", `immFromInst, " TO REG ", `OP1);
+        $display("MOVING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =0;
         raddr2 = 0;
@@ -356,7 +424,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `ORI: begin
-        $display("ORING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("ORING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -394,7 +462,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `XORI: begin
-        $display("XORING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("XORING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -434,7 +502,7 @@ always @(posedge clk, posedge rst) begin
 
 
     `XNORI: begin
-        $display("XNORING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("XNORING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -473,7 +541,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `XORI: begin
-        $display("XORING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("XORING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -492,7 +560,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `NANDI: begin
-        $display("NANDING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("NANDING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -549,7 +617,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `ADDI: begin
-        $display("ADDING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("ADDING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -587,7 +655,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `SUBI: begin
-        $display("SUBBING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("SUBBING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -625,7 +693,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `MULI: begin
-        $display("MULLING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("MULLING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -663,7 +731,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `DIVI: begin
-        $display("DIV IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("DIV IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -701,7 +769,7 @@ always @(posedge clk, posedge rst) begin
     end 
 
     `ANDI: begin
-        $display("ANDING IMM ", `immFromInst, " TO REG ", `OP1);
+        $display("ANDING IMM %h ", `immFromInst, " TO REG ", `OP1);
         waddr = `OP1;
         raddr1 =`OP1;
         raddr2 = 0;
@@ -718,6 +786,217 @@ always @(posedge clk, posedge rst) begin
         ld = 1'b0;
         pushPop = 0;
     end 
+
+    `JMP: begin
+        $display("Jumping to instruction NO#. %h ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `UNCONDITIONAL;
+    end
+
+    `JZ: begin
+        $display("Jumping to instruction NO#. %h [ZERO] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `ZERO;
+        end
+
+    `JNZ: begin
+        $display("Jumping to instruction NO#. %h [NOT ZERO] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `NOTZERO;
+    end
+
+    `JEQ: begin
+        $display("Jumping to instruction NO#. %h [EQUAL] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `EQUAL;
+    end
+
+    `JNEQ: begin
+        $display("Jumping to instruction NO#. %h [NOT EQUAL] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `NOTEQUAL;
+    end
+
+    `JG: begin
+        $display("Jumping to instruction NO#. %h [GREATER] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `GREATER;
+    end
+
+
+    `JL: begin
+        $display("Jumping to instruction NO#. %h [LESS] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `LESS;
+    end
+
+
+    `JGE: begin
+        $display("Jumping to instruction NO#. %h [GREAT EQUAL] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `GREATEQUAL;
+    end
+
+    `JLE: begin
+        $display("Jumping to instruction NO#. %h [LESS EQUAL] ", inst[34:25] );
+        waddr = 0;
+        raddr1 =0;
+        raddr2 = 0;
+        aluOpSel = `aluPASSB;
+        aluOp1 = 0;
+        aluOp2 = `IMM;
+        imm = inst[34:25];
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b1;
+        jmpType = `LESSEQUAL;
+    end
+
+    `CMP: begin
+        $display("Comparing REG %h with REG %h", `OP1, `OP2 );
+        waddr = 0;
+        raddr1 =`OP1;
+        raddr2 = `OP2;
+        aluOpSel = `aluSUB;
+        aluOp1 = `DB;
+        aluOp2 = `DB;
+        imm = 0;
+        sto = 0;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b0;
+    end  
 
     default: begin
         $display("CASE NOT FOUND, EXECUTING NOP | FOUND %b INSTEAD.", `OPCODE);

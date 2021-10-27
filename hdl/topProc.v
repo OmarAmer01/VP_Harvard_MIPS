@@ -6,16 +6,19 @@
 
 module top (
     input [31:0] inp,
-    input clk, rst,
+    input extClk, rst,
     inout [7:0] port,
     output [31:0] regA,
     output [31:0] regB,
+    output zeroF,
+    output signF,
     inout [31:0] databus1
 );
 
     // Wires and regs
     wire invClk;
-    assign invClk = ~clk;
+    wire clk;
+    
 
 
     wire [9:0] instAddr;
@@ -38,21 +41,30 @@ module top (
     reg [10:0] memMuxAddrOut;
     wire [10:0] stkTop;
     wire pushPop;
-
+    wire jmp;
+    wire progCtrjmp;
+    reg [31:0] progCtrMuxOut;
+    wire [3:0] jmpType;
+    wire [9:0] jmpLoc;
+    wire clkEn;
     // Modules
 
     ctr ProgCtr (.clk(clk),
                  .rst(rst),
                  .en(1'b1),
                  .dir(1'b1),
-                 .ctrOut(instAddr));
+                 .ctrOut(instAddr),
+                 .jmp(progCtrjmp),
+                 .jmpLoc(aluRes[9:0]));
 
     
     ctr #(.width (11)) stkCtr (.clk(clk),
                                .rst(rst),
                                .en(stk),
                                .dir(pushPop),
-                               .ctrOut(stkTop));
+                               .ctrOut(stkTop),
+                               .jmp(1'b0),
+                               .jmpLoc(11'b0));
 
     irom instRom (.addr(instAddr),
                   .rst(rst),
@@ -76,7 +88,10 @@ module top (
                    .ramWen(ramWen),
                    .resAddr(resAddr),
                    .ld(ld),
-                   .pushPop(pushPop));
+                   .pushPop(pushPop),
+                   .jmp(jmp),
+                   .jmpType(jmpType),
+                   .hlt(hlt));
 
     regFile regFile (.waddr(waddr),
                     .raddr1(raddr1),
@@ -101,9 +116,17 @@ module top (
 
     regGen #(3) flags (.d({carry, sign, zero}),
                        .rst(rst),
-                       .clk(clk),
+                       .clk(~clk),
                        .wen(1'b1),
                        .q(flagsOut));
+
+    jmpCtrl jmpCtrl (.carry(flagsOut[0]),
+                     .sign(flagsOut[1]),
+                     .zero(flagsOut[2]),
+                     .op(jmpType),
+                     .jmpWake(jmp),
+                     .jmp(progCtrjmp),
+                     .clk(clk));
 
     ram ram (.dataIn(aluRes),
              .addr(memMuxAddrOut),
@@ -114,6 +137,10 @@ module top (
              .port(port));
 
     assign databus1 = db1;
+    assign zeroF = flagsOut[2];
+    assign signF = flagsOut[1];
+    assign clk = ~hlt && extClk;
+    assign invClk = ~clk;
 
     // MUX
 
@@ -146,6 +173,7 @@ module top (
             1'b1: memMuxAddrOut = stkTop; 
             default: memMuxAddrOut = memAddr;
         endcase
+
 
     end
 

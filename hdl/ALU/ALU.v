@@ -63,7 +63,7 @@ always @(opSel, a, b) begin
         `SUB:  `aluRes = fsRes;
         `PASS: `aluRes = a;
 
-        // op:
+        `MUL:  `aluRes = a*b;
         // op:
         // op:
         `PASSB: `aluRes = b;
@@ -93,7 +93,7 @@ always @(opSel, a, b) begin
 
     // ZERO FLAG
         case(`aluRes)
-            0: auxZero = 1;
+            1'b0: auxZero = 1;
             default: auxZero = 0;
         endcase
 

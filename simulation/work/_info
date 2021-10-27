@@ -10,23 +10,23 @@ z2
 cModel Technology
 dC:/intelFPGA/20.1
 vALU
-!s110 1634562827
+!s110 1635270653
 !i10b 1
-!s100 1f@HGe@3YzOKR78]RVdhG0
+!s100 7GE`>9d9_@KlUYSYIS9Ql1
 Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Ii0`QLNME^I^2IP]AVfe=V2
+I?KdMAZSUhhV1gP^OH51303
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dG:/VP/simulation
-w1634562716
+w1635270617
 8G:/VP/hdl/ALU/ALU.v
 FG:/VP/hdl/ALU/ALU.v
-!i122 590
+!i122 649
 L0 4 107
 Z3 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1634562826.000000
+!s108 1635270652.000000
 !s107 G:/VP/hdl/ALU/ALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ALU/ALU.v|
 !i113 1
@@ -34,46 +34,46 @@ Z4 o-work work
 Z5 tCvgOpt 0
 n@a@l@u
 vctr
-!s110 1634672376
+!s110 1635022651
 !i10b 1
-!s100 K`YZzeS>HidYAzh;kLf@f0
+!s100 Wb4EX?3g_5W3UcnkJd5cm1
 R0
-IKFOf19XP3]L^XU4bzMc?z2
+Ik`>5YBfC<IQfd5zAI<aYn2
 R1
 R2
-w1634672368
+w1635022646
 8G:/VP/hdl/Mem/ctr.v
 FG:/VP/hdl/Mem/ctr.v
-!i122 613
-L0 4 47
+!i122 621
+L0 4 53
 R3
 r1
 !s85 0
 31
-!s108 1634672376.000000
+!s108 1635022651.000000
 !s107 G:/VP/hdl/Mem/ctr.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/ctr.v|
 !i113 1
 R4
 R5
 vctrl
-!s110 1634671378
+!s110 1635275473
 !i10b 1
-!s100 TVV0]6Z]Ed2ZIc36gTEB42
+!s100 JLINRE?Ij`zo_<g3IAS?h1
 R0
-IlzQN_zo:H1QLcm5Y^:mmi1
+I09k<jK@z_5lZ>7L=l623Z3
 R1
 R2
-w1634671371
+w1635275467
 8G:/VP/hdl/ctrlUnit.v
 FG:/VP/hdl/ctrlUnit.v
-!i122 610
-L0 5 741
+!i122 650
+L0 5 1020
 R3
 r1
 !s85 0
 31
-!s108 1634671378.000000
+!s108 1635275473.000000
 !s107 G:/VP/hdl/ctrlUnit.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ctrlUnit.v|
 !i113 1
@@ -149,6 +149,30 @@ R8
 !i113 1
 R4
 R5
+vjmpCtrl
+!s110 1635278295
+!i10b 1
+!s100 YoI[XL5ic`mG5<=4alD?z3
+R0
+Ic69>838iRZ[79PA?U3QG20
+R1
+R2
+w1635278289
+8G:/VP/hdl/jmpCtrl.v
+FG:/VP/hdl/jmpCtrl.v
+!i122 658
+L0 1 98
+R3
+r1
+!s85 0
+31
+!s108 1635278295.000000
+!s107 G:/VP/hdl/jmpCtrl.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/jmpCtrl.v|
+!i113 1
+R4
+R5
+njmp@ctrl
 vram
 !s110 1634238683
 !i10b 1
@@ -243,24 +267,48 @@ R12
 R4
 R5
 nreg@gen
-vtop
-!s110 1634644766
+vshReg
+!s110 1635333942
 !i10b 1
-!s100 YCeDgfXA=ae8VSCeATJmX2
+!s100 N0ke7CRL4OW0ncjLdzlJA0
 R0
-In^DYCQJXhfiQjo]JiEJc;0
+II_9mOgbECT7:eS79c9eaK3
 R1
 R2
-w1634644760
-8G:/VP/hdl/topProc.v
-FG:/VP/hdl/topProc.v
-!i122 603
-L0 7 146
+w1635333939
+8G:/VP/hdl/ALU/shReg.v
+FG:/VP/hdl/ALU/shReg.v
+!i122 665
+L0 5 26
 R3
 r1
 !s85 0
 31
-!s108 1634644766.000000
+!s108 1635333942.000000
+!s107 G:/VP/hdl/ALU/shReg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ALU/shReg.v|
+!i113 1
+R4
+R5
+nsh@reg
+vtop
+!s110 1635276112
+!i10b 1
+!s100 X4B_TiFM4G?2DHBL[UGS`0
+R0
+IhK=BkI^PB4<f?QI@IRJ4X2
+R1
+R2
+w1635275687
+8G:/VP/hdl/topProc.v
+FG:/VP/hdl/topProc.v
+!i122 652
+L0 7 174
+R3
+r1
+!s85 0
+31
+!s108 1635276112.000000
 !s107 G:/VP/hdl/topProc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/topProc.v|
 !i113 1
