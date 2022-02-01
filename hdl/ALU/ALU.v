@@ -1,16 +1,18 @@
 // Omar Amer
-// 2021 - 08 - 01
 // Arithmetic Logic Unit with Bidir shift register.
+
 module ALU(
-    input      [31:0] a ,
-    input      [31:0] b ,
-    input      [3 :0] opSel,
     output            carryFlag,
     output            signFlag,
     output            zeroFlag,
-    output reg [31:0] result 
-
+    output     [31:0] result,
+    input      [31:0] a ,
+    input      [31:0] b ,
+    input      [3 :0] opSel
 );
+
+    
+
 
 // OP CODES
 
@@ -82,7 +84,7 @@ always @(opSel, a, b) begin
         // op:
         // op:
          `ADD: `carryBit = faCout;
-         `SUB: `carryBit = fsCout;
+         `SUB: `carryBit = ~fsCout;
          `PASS: `carryBit = 0;
         // op:
         // op:

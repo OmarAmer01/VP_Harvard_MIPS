@@ -10,10 +10,9 @@ module regGen #(parameter width = 32) (
 
 );
 
-always @(rst, posedge clk, wen) begin
+always @(rst, posedge clk) begin
 
-    if(rst ) begin
-        //q =  32'b0;
+    if(rst) begin
         q = {width{32'b0}};
     end
 

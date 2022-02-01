@@ -1,0 +1,4 @@
+Warning (10273): Verilog HDL warning at tsb.v(12): extended using "x" or "z" File: G:/VP/hdl/regFile/tsb.v Line: 12
+Warning (10268): Verilog HDL information at shReg.v(16): always construct contains both blocking and non-blocking assignments File: G:/VP/hdl/ALU/shReg.v Line: 16
+Warning (10273): Verilog HDL warning at topProc.v(152): extended using "x" or "z" File: G:/VP/hdl/topProc.v Line: 152
+Warning (10268): Verilog HDL information at ctrlUnit.v(137): always construct contains both blocking and non-blocking assignments File: G:/VP/hdl/ctrlUnit.v Line: 137

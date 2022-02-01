@@ -8,11 +8,13 @@ module ram (
     input wen,
     input clk,
     input rst,
-    output reg [31:0] data,
-    output reg [7:0] port
+    output  [31:0] data,
+    output  [7:0] port
 );
     
-    reg [31:0] ram [2047:0];
+    reg  [31:0] ram [2047:0];
+    reg [31:0] dataAux;
+    assign data = dataAux;
     assign data = ram[addr];
     integer i;
 always @(rst, posedge clk) begin
@@ -26,8 +28,8 @@ always @(rst, posedge clk) begin
     else begin
         case (wen)
             1: ram[addr] = dataIn;
-            0: data = ram[addr];
-            default: data = ram[addr];
+            0: dataAux = ram[addr];
+            default: dataAux = ram[addr];
         endcase
     end
 end

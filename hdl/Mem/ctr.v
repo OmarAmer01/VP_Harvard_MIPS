@@ -1,56 +1,36 @@
 // Omar Tarek Amer
-// 08-17-2021
 // Counter
+
 module ctr #(parameter width  = 10) (
+    output [width-1:0] ctrOut,
     input clk,
     input rst,
     input en,
     input dir, // 0 -> Decrement , 1 -> Increment
     input jmp,
-    input [width-1:0] jmpLoc,
-    output reg [width-1:0] ctrOut
+    input [width-1:0] jmpLoc
 );
 
 
 
-reg [width-1:0] ctrOutAux = {(width+1){1'b1}};
+reg [width-1:0] ctrOutAux;
 
-always @(posedge rst) begin
-    if(rst)
-        ctrOutAux = {(width+1){1'b1}};
+always @(negedge rst) begin
+    ctrOutAux = {(width+1){1'b0}};
 end
 
-always @(negedge clk) begin
-    if(rst)begin
-        if (dir) begin
-             ctrOutAux <= {(width+1){1'b0}};
+always @(posedge clk) begin
+        if(en) begin
+            if (dir==1) // Increment
+                ctrOutAux = ctrOutAux+1;
+            else if (dir==0) // Decrement
+                ctrOutAux = ctrOutAux-1;
+
+            if (jmp)
+                ctrOutAux = jmpLoc;
         end
-
-        else if (~dir) begin
-            ctrOutAux <= {(width+1){1'b1}};
-        end
-        
-    end
-
-        
-    else if (en) begin
-        if(dir) begin
-            ctrOutAux <= ctrOutAux + 1;
-        end
-        else begin
-            ctrOutAux <= ctrOutAux - 1;
-        end
-
-        if(jmp) begin
-            ctrOutAux <= jmpLoc;
-        end
-
-    end
-    else begin
-        ctrOutAux <= ctrOutAux;
-    end
-
-
 end
-   assign ctrOut = ctrOutAux;
+
+assign ctrOut = ctrOutAux;
+
 endmodule

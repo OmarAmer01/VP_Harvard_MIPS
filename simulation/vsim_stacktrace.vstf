@@ -1,0 +1,156 @@
+# Current time Mon Jan 31 18:49:28 2022
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vsim
+# Id = "10.5b"
+# Version = "2016.10"
+# Date = "Oct  5 2016"
+# Platform = win32pe
+# Signature = a4da31216fa3031746f0a74423efc007
+# 0    0x006155f7: '<unknown (@0x6155f7)>'
+# 1    0x0113ab05: '<unknown (@0x113ab05)>'
+# 2    0x00ca296d: '<unknown (@0xca296d)>'
+# 3    0x005ff7f0: '<unknown (@0x5ff7f0)>'
+# 4    0x005ff9d8: '<unknown (@0x5ff9d8)>'
+# 5    0x005ffa54: '<unknown (@0x5ffa54)>'
+# 6    0x005f925f: '<unknown (@0x5f925f)>'
+# 7    0x005f91c5: '<unknown (@0x5f91c5)>'
+# 8    0x0082766a: '<unknown (@0x82766a)>'
+# 9    0x0092547d: '<unknown (@0x92547d)>'
+# 10   0x772ae5a2: 'RtlIpv4AddressToStringA + 0x132' in 'c:\windows\system32\ntdll.dll'
+# 11   0x772a9261: 'RtlUnwind + 0x1d1' in 'c:\windows\system32\ntdll.dll'
+# 12   0x772b7026: 'KiUserExceptionDispatcher + 0x26' in 'c:\windows\system32\ntdll.dll'
+# 13   0x00ca4b85: '<unknown (@0xca4b85)>'
+# 14   0x005b9e11: '<unknown (@0x5b9e11)>'
+# 15   0x005b6fd0: '<unknown (@0x5b6fd0)>'
+# 16   0xfeff006e: '<unknown (@0xfeff006e)>'
+# 17   0x00ca2804: '<unknown (@0xca2804)>'
+# 18   0x005b8029: '<unknown (@0x5b8029)>'
+# 19   0x005b8151: '<unknown (@0x5b8151)>'
+# 20   0x005b968c: '<unknown (@0x5b968c)>'
+# 21   0x0068837f: '<unknown (@0x68837f)>'
+# 22   0x0067e698: '<unknown (@0x67e698)>'
+# 23   0x006ac3f8: '<unknown (@0x6ac3f8)>'
+# 24   0x00683790: '<unknown (@0x683790)>'
+# 25   0xfeff1033: 'G:/VP/hdl/ALU/ALU_tb.v:27'
+# 26   0x00ca2804: '<unknown (@0xca2804)>'
+# 27   0x00507969: '<unknown (@0x507969)>'
+# End of Stack Trace
+
+
+# Current time Mon Jan 31 18:52:20 2022
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vsim
+# Id = "10.5b"
+# Version = "2016.10"
+# Date = "Oct  5 2016"
+# Platform = win32pe
+# Signature = a4da31216fa3031746f0a74423efc007
+# 0    0x006155f7: '<unknown (@0x6155f7)>'
+# 1    0x0113ab05: '<unknown (@0x113ab05)>'
+# 2    0x00ca296d: '<unknown (@0xca296d)>'
+# 3    0x005ff7f0: '<unknown (@0x5ff7f0)>'
+# 4    0x005ff9d8: '<unknown (@0x5ff9d8)>'
+# 5    0x005ffa54: '<unknown (@0x5ffa54)>'
+# 6    0x005f925f: '<unknown (@0x5f925f)>'
+# 7    0x005f91c5: '<unknown (@0x5f91c5)>'
+# 8    0x0082766a: '<unknown (@0x82766a)>'
+# 9    0x0092547d: '<unknown (@0x92547d)>'
+# 10   0x772ae5a2: 'RtlIpv4AddressToStringA + 0x132' in 'c:\windows\system32\ntdll.dll'
+# 11   0x772a9261: 'RtlUnwind + 0x1d1' in 'c:\windows\system32\ntdll.dll'
+# 12   0x772b7026: 'KiUserExceptionDispatcher + 0x26' in 'c:\windows\system32\ntdll.dll'
+# 13   0x00ca4b85: '<unknown (@0xca4b85)>'
+# 14   0x005b9e11: '<unknown (@0x5b9e11)>'
+# 15   0x005b6fd0: '<unknown (@0x5b6fd0)>'
+# 16   0xfeff006e: '<unknown (@0xfeff006e)>'
+# 17   0x00ca2804: '<unknown (@0xca2804)>'
+# 18   0x005b8029: '<unknown (@0x5b8029)>'
+# 19   0x005b8151: '<unknown (@0x5b8151)>'
+# 20   0x005b968c: '<unknown (@0x5b968c)>'
+# 21   0x0068837f: '<unknown (@0x68837f)>'
+# 22   0x0067e698: '<unknown (@0x67e698)>'
+# 23   0x006ac3f8: '<unknown (@0x6ac3f8)>'
+# 24   0x00683790: '<unknown (@0x683790)>'
+# 25   0xfeff1033: 'G:/VP/hdl/ALU/ALU_tb.v:27'
+# 26   0x00ca2804: '<unknown (@0xca2804)>'
+# 27   0x00507969: '<unknown (@0x507969)>'
+# End of Stack Trace
+
+
+# Current time Mon Jan 31 18:53:12 2022
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vsim
+# Id = "10.5b"
+# Version = "2016.10"
+# Date = "Oct  5 2016"
+# Platform = win32pe
+# Signature = a4da31216fa3031746f0a74423efc007
+# 0    0x006155f7: '<unknown (@0x6155f7)>'
+# 1    0x0113ab05: '<unknown (@0x113ab05)>'
+# 2    0x00ca296d: '<unknown (@0xca296d)>'
+# 3    0x005ff7f0: '<unknown (@0x5ff7f0)>'
+# 4    0x005ff9d8: '<unknown (@0x5ff9d8)>'
+# 5    0x005ffa54: '<unknown (@0x5ffa54)>'
+# 6    0x005f925f: '<unknown (@0x5f925f)>'
+# 7    0x005f91c5: '<unknown (@0x5f91c5)>'
+# 8    0x0082766a: '<unknown (@0x82766a)>'
+# 9    0x0092547d: '<unknown (@0x92547d)>'
+# 10   0x772ae5a2: 'RtlIpv4AddressToStringA + 0x132' in 'c:\windows\system32\ntdll.dll'
+# 11   0x772a9261: 'RtlUnwind + 0x1d1' in 'c:\windows\system32\ntdll.dll'
+# 12   0x772b7026: 'KiUserExceptionDispatcher + 0x26' in 'c:\windows\system32\ntdll.dll'
+# 13   0x00ca4b85: '<unknown (@0xca4b85)>'
+# 14   0x005b9e11: '<unknown (@0x5b9e11)>'
+# 15   0x005b6fd0: '<unknown (@0x5b6fd0)>'
+# 16   0xfeff006e: '<unknown (@0xfeff006e)>'
+# 17   0x00ca2804: '<unknown (@0xca2804)>'
+# 18   0x005b8029: '<unknown (@0x5b8029)>'
+# 19   0x005b8151: '<unknown (@0x5b8151)>'
+# 20   0x005b968c: '<unknown (@0x5b968c)>'
+# 21   0x0068837f: '<unknown (@0x68837f)>'
+# 22   0x0067e698: '<unknown (@0x67e698)>'
+# 23   0x006ac3f8: '<unknown (@0x6ac3f8)>'
+# 24   0x00683790: '<unknown (@0x683790)>'
+# 25   0xfeff1033: 'G:/VP/hdl/ALU/ALU_tb.v:27'
+# 26   0x00ca2804: '<unknown (@0xca2804)>'
+# 27   0x00507969: '<unknown (@0x507969)>'
+# End of Stack Trace
+
+
+# Current time Mon Jan 31 18:56:39 2022
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vsim
+# Id = "10.5b"
+# Version = "2016.10"
+# Date = "Oct  5 2016"
+# Platform = win32pe
+# Signature = a4da31216fa3031746f0a74423efc007
+# 0    0x006155f7: '<unknown (@0x6155f7)>'
+# 1    0x0113ab05: '<unknown (@0x113ab05)>'
+# 2    0x00ca296d: '<unknown (@0xca296d)>'
+# 3    0x005ff7f0: '<unknown (@0x5ff7f0)>'
+# 4    0x005ff9d8: '<unknown (@0x5ff9d8)>'
+# 5    0x005ffa54: '<unknown (@0x5ffa54)>'
+# 6    0x005f925f: '<unknown (@0x5f925f)>'
+# 7    0x005f91c5: '<unknown (@0x5f91c5)>'
+# 8    0x0082766a: '<unknown (@0x82766a)>'
+# 9    0x0092547d: '<unknown (@0x92547d)>'
+# 10   0x772ae5a2: 'RtlIpv4AddressToStringA + 0x132' in 'c:\windows\system32\ntdll.dll'
+# 11   0x772a9261: 'RtlUnwind + 0x1d1' in 'c:\windows\system32\ntdll.dll'
+# 12   0x772b7026: 'KiUserExceptionDispatcher + 0x26' in 'c:\windows\system32\ntdll.dll'
+# 13   0x00ca4b85: '<unknown (@0xca4b85)>'
+# 14   0x005b9e11: '<unknown (@0x5b9e11)>'
+# 15   0x005b6fd0: '<unknown (@0x5b6fd0)>'
+# 16   0xfeff006e: '<unknown (@0xfeff006e)>'
+# 17   0x00ca2804: '<unknown (@0xca2804)>'
+# 18   0x005b8029: '<unknown (@0x5b8029)>'
+# 19   0x005b8151: '<unknown (@0x5b8151)>'
+# 20   0x005b968c: '<unknown (@0x5b968c)>'
+# 21   0x0068837f: '<unknown (@0x68837f)>'
+# 22   0x0067e698: '<unknown (@0x67e698)>'
+# 23   0x006ac3f8: '<unknown (@0x6ac3f8)>'
+# 24   0x00683790: '<unknown (@0x683790)>'
+# 25   0xfeff0fd3: 'G:/VP/hdl/ALU/ALU_tb.v:29'
+# 26   0x00ca2804: '<unknown (@0xca2804)>'
+# 27   0x00507969: '<unknown (@0x507969)>'
+# End of Stack Trace
+
+
