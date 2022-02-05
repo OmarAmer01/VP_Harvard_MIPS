@@ -2,17 +2,15 @@
 // 8 - 17 - 2021
 // Top Module
 
-//TODO: ADD ROM RESET :)
+
 
 module top (
-    input [31:0] inp,
     input extClk, rst,
     inout [7:0] port,
-    output [31:0] regA,
-    output [31:0] regB,
     output zeroF,
     output signF,
-    inout [31:0] databus1
+    output [31:0] regA,
+    output [31:0] regB
 );
 
     // Wires and regs
@@ -67,7 +65,6 @@ module top (
                                .jmpLoc(11'b0));
 
     irom instRom (.addr(instAddr),
-                  .rst(rst),
                   .data(ctrlUnitInstIn));
 
     ctrl ctrl (.inst(ctrlUnitInstIn),
@@ -76,7 +73,6 @@ module top (
                    .waddr(waddr),
                    .raddr1(raddr1),
                    .raddr2(raddr2),
-                   //.rw(rw),
                    .aluOpSel(aluOpSel),
                    .aluOp1(aluSrcSel1),
                    .aluOp2(aluSrcSel2),
@@ -114,15 +110,15 @@ module top (
              .result(aluRes));
 
 
-    regGen #(3) flags (.d({carry, sign, zero}),
-                       .rst(rst),
-                       .clk(~clk),
-                       .wen(1'b1),
-                       .q(flagsOut));
+    // regGen #(3) flags (.d({carry, sign, zero}),
+    //                    .rst(rst),
+    //                    .clk(~clk),
+    //                    .wen(1'b1),
+    //                    .q(flagsOut));
 
-    jmpCtrl jmpCtrl (.carry(flagsOut[0]),
-                     .sign(flagsOut[1]),
-                     .zero(flagsOut[2]),
+    jmpCtrl jmpCtrl (.carry(carry),
+                     .sign(sign),
+                     .zero(zero),
                      .op(jmpType),
                      .jmpWake(jmp),
                      .jmp(progCtrjmp),
@@ -137,8 +133,8 @@ module top (
              .port(port));
 
     assign databus1 = db1;
-    assign zeroF = flagsOut[2];
-    assign signF = flagsOut[1];
+    assign zeroF = zero;
+    assign signF = sign;
     assign clk = ~hlt && extClk;
     assign invClk = ~clk;
 
@@ -149,15 +145,14 @@ module top (
         case (aluSrcSel1)
             2'b00: aluOp1 = db1;
             2'b01: aluOp1 = memOut;
-            2'b10: aluOp1 = 32'bz;
-            2'b11: aluOp1 = 32'b1;
+            default: aluOp1 = db1;
         endcase
 
         case (aluSrcSel2)
             2'b00: aluOp2 = db2;
             2'b01: aluOp2 = memOut;
             2'b10: aluOp2 = imm;
-            2'b11: aluOp2 = 1;
+            default: aluOp2 = db2;
         endcase
 
         // LOAD MUX

@@ -48,7 +48,7 @@ reg auxZero;
 FA uFA (a, b, 1'b0, faRes, faCout);
 FA uFS (a, ~b, 1'b1, fsRes, fsCout);
 
-always @(opSel, a, b) begin
+always @(*) begin
     
     // RESULT
     case (opSel)
@@ -93,11 +93,17 @@ always @(opSel, a, b) begin
         default: `carryBit = 0;
     endcase
 
-    // ZERO FLAG
-        case(`aluRes)
-            1'b0: auxZero = 1;
-            default: auxZero = 0;
-        endcase
+    // // ZERO FLAG
+    //     case(`aluRes)
+    //         0: auxZero = 1;
+    //         default: auxZero = 0;
+    //     endcase
+    if (`aluRes == 0) begin
+        auxZero = 1'b1;
+    end 
+    else begin
+        auxZero = 1'b0;
+    end
 
 end
 

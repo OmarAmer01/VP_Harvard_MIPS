@@ -4,7 +4,6 @@
 
 module dcd3x8 (
     input      [2:0] sel,
-    input            rst,
     output reg [7:0] dcdout
 );
     

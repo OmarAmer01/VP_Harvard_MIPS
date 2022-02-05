@@ -1,24 +1,20 @@
 // Omar Amer
-// 08-09-2021
 // 8 X 32 Register File
 
 module regFile (
-    input [2:0]  waddr,
+    output [31:0] databus1,
+    output [31:0] databus2,
+    output [31:0] regA,
+    output [31:0] regB,
 
+    input [2:0]  waddr,
     input [2:0]  raddr1,
     input [2:0]  raddr2,
-
-    //input        rw, // 1 = Write, 0 = Read
     input        clk,
     input        rst,
     input        sto,
     
-    inout [31:0] databus1,
-    inout [31:0] databus2,
-
-    input [31:0] dataIn,
-    output [31:0] regA,
-    output [31:0] regB
+    input [31:0] dataIn
 );
     // Wires
     wire [7:0] wdcdOut;
@@ -38,10 +34,10 @@ module regFile (
     reg [31:0] regIn;
 
     // Decoders
-    dcd3x8 wdcd (.sel(waddr), .dcdout(wdcdOut), .rst(~clk));
+    dcd3x8 wdcd (.sel(waddr), .dcdout(wdcdOut));
 
-    dcd3x8 rdcd1 (.sel(raddr1), .dcdout(rdcdOut1), .rst(clk));
-    dcd3x8 rdcd2 (.sel(raddr2), .dcdout(rdcdOut2), .rst(clk));
+    dcd3x8 rdcd1 (.sel(raddr1), .dcdout(rdcdOut1));
+    dcd3x8 rdcd2 (.sel(raddr2), .dcdout(rdcdOut2));
 
     // Tri-state buffers
     tsb axt1 (.d(axOut), .g(rdcdOut1[0]), .q(databus1));
@@ -75,14 +71,15 @@ module regFile (
     regGen EY (.d(regIn), .rst(rst), .clk(clk), .wen(wdcdOut[6]), .q(eyOut));
     regGen EZ (.d(regIn), .rst(rst), .clk(clk), .wen(wdcdOut[7]), .q(ezOut));
 
-    // Debug
+
     assign regA = axOut;
     assign regB = bxOut;
 
+
 always @(*) begin
     case (sto)
-    1: regIn = dataIn;
-    0: regIn = databus1;
+    1'b1: regIn = dataIn;
+    1'b0: regIn = databus1;
     default: regIn = databus1;
     endcase
 end

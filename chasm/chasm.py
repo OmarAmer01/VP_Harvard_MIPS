@@ -394,10 +394,10 @@ def printFile(file):
         print(line)
 
 
-IN_FILENAME = 'FIBONACCI'
+IN_FILENAME = 'goodisa'
 
-file = open('G:/VP/chasm/FIBONACCI.asm')
-#file = open(IN_FILENAME+'.asm', "r")
+file = open('G:/VP/chasm/goodisa.asm')
+
 
 prog = program(file)
 labels = prog.preProcess()

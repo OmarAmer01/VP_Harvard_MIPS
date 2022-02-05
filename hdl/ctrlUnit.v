@@ -9,9 +9,6 @@ module ctrl (
     output reg [2:0] waddr,
     output reg [2:0] raddr1,
     output reg [2:0] raddr2,
-
-    //output reg rw,
-
     output reg [3:0]  aluOpSel,
     output reg [1:0]  aluOp1,
     output reg [1:0]  aluOp2,
@@ -134,8 +131,7 @@ module ctrl (
 `define HLT 6'b111111
 
 // LOGIC
-always @(posedge clk, posedge rst) begin
-
+always @(*) begin
         waddr = 0;
         raddr1 = 0;
         raddr2 = 0;
@@ -176,40 +172,10 @@ always @(posedge clk, posedge rst) begin
     case (`OPCODE)
     `NOP: begin
         $display("NOP");
-        waddr = 0;
-        raddr1 = 0;
-        raddr2 = 0;
-        aluOpSel = 0;
-        aluOp1 = 0;
-        aluOp2 = 0;
-        imm = 0;
-        sto = 0 ;
-        memAddrSel = 0;
-        memAddr = 11'b0;
-        stk = 0;
-        ramWen = 0;
-        resAddr = 0;
-        ld = 0;
-        pushPop = 0;
     end
 
     `HLT: begin
         $display("EXECUTION HALTED.");
-        waddr = 0;
-        raddr1 = 0;
-        raddr2 = 0;
-        aluOpSel = 0;
-        aluOp1 = 0;
-        aluOp2 = 0;
-        imm = 0;
-        sto = 0 ;
-        memAddrSel = 0;
-        memAddr = 11'b0;
-        stk = 0;
-        ramWen = 0;
-        resAddr = 0;
-        ld = 0;
-        pushPop = 0;
         hlt = 1'b1;
     end
 
@@ -217,12 +183,9 @@ always @(posedge clk, posedge rst) begin
         $display("NOT | SRC/DST: REG ", `OP1);
         waddr = `OP1;
         raddr1 = `OP1;
-        raddr2 = 0;
         aluOpSel = `aluNOT;
-        aluOp1 = 0;
-        aluOp2 = 0;
-        imm = 0;
-        sto = 1'b1 ;
+        aluOp1 = `DB;
+        sto = 1'b1;
         memAddrSel = 0;
         memAddr = 11'b0;
         stk = 0;
@@ -395,7 +358,7 @@ always @(posedge clk, posedge rst) begin
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
-        memAddrSel = 1'b1 ;
+        memAddrSel = 1'b0 ;
         memAddr = 11'b0;
         stk = 1'b0;
         ramWen = 1'b0;
@@ -461,24 +424,6 @@ always @(posedge clk, posedge rst) begin
         pushPop = 0;
     end 
 
-    `XORI: begin
-        $display("XORING IMM %h ", `immFromInst, " TO REG ", `OP1);
-        waddr = `OP1;
-        raddr1 =`OP1;
-        raddr2 = 0;
-        aluOpSel = `aluXOR;
-        aluOp1 = `DB;
-        aluOp2 = `IMM;
-        imm = `immFromInst;
-        sto = 1;
-        memAddrSel = 1'b1 ;
-        memAddr = 11'b0;
-        stk = 1'b0;
-        ramWen = 1'b0;
-        resAddr = 0;
-        ld = 1'b0;
-        pushPop = 0;
-    end 
 
     `XNOR: begin
         $display("XNORING SRC:", `OP2, " | DST: ", `OP1);
@@ -984,8 +929,8 @@ always @(posedge clk, posedge rst) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluSUB;
-        aluOp1 = `DB;
-        aluOp2 = `DB;
+        aluOp1 <= `DB;
+        aluOp2 <= `DB;
         imm = 0;
         sto = 0;
         memAddrSel = 1'b0 ;

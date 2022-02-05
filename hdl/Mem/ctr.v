@@ -15,20 +15,29 @@ module ctr #(parameter width  = 10) (
 
 reg [width-1:0] ctrOutAux;
 
-always @(negedge rst) begin
-    ctrOutAux = {(width+1){1'b0}};
-end
+
 
 always @(posedge clk) begin
-        if(en) begin
-            if (dir==1) // Increment
+        if (rst) begin
+            ctrOutAux = {(width+1){1'b1}};
+        end
+        else if(en) begin
+            if (jmp)
+                ctrOutAux = jmpLoc;
+            else if (dir==1) // Increment
                 ctrOutAux = ctrOutAux+1;
             else if (dir==0) // Decrement
                 ctrOutAux = ctrOutAux-1;
+            else
+                ctrOutAux = ctrOutAux;
 
-            if (jmp)
-                ctrOutAux = jmpLoc;
+
         end
+        else begin
+            ctrOutAux = ctrOutAux;
+        end
+            
+            
 end
 
 assign ctrOut = ctrOutAux;

@@ -10,13 +10,13 @@ z2
 cModel Technology
 dC:/intelFPGA/20.1
 vALU
-!s110 1643662519
+!s110 1644063677
 !i10b 1
-!s100 kZQ_h8PL`DMUVj:5ZF2^@0
-I8eMeQ=MKa3V>8=6;cJh^n0
+!s100 2[DV@RB4DUoVngR<i0S4X0
+InjlA@SP9lL5g;A>93jCXH2
 Z0 VDg1SIo80bB@j0V0VzS_@n1
 Z1 dG:/VP/simulation
-w1643662513
+w1644060743
 8G:/VP/hdl/ALU/ALU.v
 FG:/VP/hdl/ALU/ALU.v
 L0 4
@@ -24,7 +24,7 @@ Z2 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1643662519.000000
+!s108 1644063677.000000
 !s107 G:/VP/hdl/ALU/ALU.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ALU/ALU.v|
 !i113 1
@@ -32,13 +32,13 @@ Z3 o-work work
 Z4 tCvgOpt 0
 n@a@l@u
 vALU_tb
-Z5 !s110 1643662267
+!s110 1644061483
 !i10b 1
-!s100 Xoa;=_IhdVmd0?D2B>X`N2
-I8Ki?3]We2SVL`=1?KOmA22
+!s100 UWAXn=kARH[kld9^fh7hk0
+Ih45LHe7Tj;ITN<[n^najn0
 R0
 R1
-w1643660365
+w1644061443
 8G:/VP/hdl/ALU/ALU_tb.v
 FG:/VP/hdl/ALU/ALU_tb.v
 L0 1
@@ -46,7 +46,7 @@ R2
 r1
 !s85 0
 31
-Z6 !s108 1643662267.000000
+!s108 1644061483.000000
 !s107 G:/VP/hdl/ALU/ALU_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ALU/ALU_tb.v|
 !i113 1
@@ -54,13 +54,13 @@ R3
 R4
 n@a@l@u_tb
 vctr
-!s110 1643665603
+!s110 1644066702
 !i10b 1
-!s100 ZH>5X9Z9T??jB5omURllJ2
-INH9S:XzOIX;OzQJA4c4jL0
+!s100 MUnagQ4mQf6dPbob_nM@Y3
+In<ZIm:FLBE4]PYUO3RU_O2
 R0
 R1
-w1643665549
+w1644066694
 8G:/VP/hdl/Mem/ctr.v
 FG:/VP/hdl/Mem/ctr.v
 L0 4
@@ -68,14 +68,14 @@ R2
 r1
 !s85 0
 31
-!s108 1643665603.000000
+!s108 1644066702.000000
 !s107 G:/VP/hdl/Mem/ctr.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/ctr.v|
 !i113 1
 R3
 R4
 vctr_tb
-!s110 1643665397
+Z5 !s110 1643826926
 !i10b 1
 !s100 >cP>d9W0;lebKL<Z`DLDm1
 IVe4cI1IRD`W;IfIG3Q2fG1
@@ -89,20 +89,20 @@ R2
 r1
 !s85 0
 31
-!s108 1643665397.000000
+Z6 !s108 1643826925.000000
 !s107 G:/VP/hdl/Mem/ctr_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/ctr_tb.v|
 !i113 1
 R3
 R4
 vctrl
-R5
+!s110 1644071304
 !i10b 1
-!s100 4b>J^3ai<7>lFF<mO7ZQ33
-IZ02;V]mz=k?eZ1QnLLeP]2
+!s100 k[Q5=LVd0cXR]TiBVh7ch1
+ISI_ZJiV12829[9T6P9HRm0
 R0
 R1
-w1635275467
+w1644071294
 8G:/VP/hdl/ctrlUnit.v
 FG:/VP/hdl/ctrlUnit.v
 L0 5
@@ -110,20 +110,20 @@ R2
 r1
 !s85 0
 31
-R6
+!s108 1644071304.000000
 !s107 G:/VP/hdl/ctrlUnit.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ctrlUnit.v|
 !i113 1
 R3
 R4
 vdcd3x8
-Z7 !s110 1643662266
+Z7 !s110 1643826925
 !i10b 1
-!s100 UL19Febcb1S8ZJJ5NIcmG2
-IYYZENoKdFdL3V`V1OHLP63
+!s100 _]b[o3=nh^OTmg1FNW<:=2
+IhTfX1W3QL@[FQneVD3gh_0
 R0
 R1
-w1634238070
+w1643821991
 8G:/VP/hdl/regFile/dcd3x8.v
 FG:/VP/hdl/regFile/dcd3x8.v
 L0 5
@@ -131,7 +131,7 @@ R2
 r1
 !s85 0
 31
-Z8 !s108 1643662266.000000
+R6
 !s107 G:/VP/hdl/regFile/dcd3x8.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/dcd3x8.v|
 !i113 1
@@ -152,7 +152,7 @@ R2
 r1
 !s85 0
 31
-R8
+R6
 !s107 G:/VP/hdl/ALU/FA.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/ALU/FA.v|
 !i113 1
@@ -162,32 +162,32 @@ n@f@a
 virom
 R7
 !i10b 1
-!s100 F1W>mn:jLBHiO8d54@3X33
-I@][BR;A96_:c0aX8E<3fg2
+!s100 O[oHaa0LYc];eMUbIo6cB2
+I8dh;P09VhlY@g;XZPz`XS0
 R0
 R1
-w1637053776
+w1643757907
 8G:/VP/hdl/Mem/irom.v
 FG:/VP/hdl/Mem/irom.v
-L0 4
+L0 3
 R2
 r1
 !s85 0
 31
-R8
+R6
 !s107 G:/VP/hdl/Mem/irom.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/irom.v|
 !i113 1
 R3
 R4
 vjmpCtrl
-R5
+R7
 !i10b 1
 !s100 =eS;RS9=>hZLLBR7K8:480
 IVQnXSD=:WNm]oYJ73eXdW0
 R0
 R1
-w1635278289
+w1643826384
 8G:/VP/hdl/jmpCtrl.v
 FG:/VP/hdl/jmpCtrl.v
 L0 1
@@ -203,16 +203,16 @@ R3
 R4
 njmp@ctrl
 vram
-R5
+R7
 !i10b 1
-!s100 6EV?QA1L2mc92g_Sib3Ml3
-IB=kCCYhWKA00^hN1ZL[N80
+!s100 14g;lIeb[6Y1U4GBfIoj?0
+IejT2k7jj90=PhbPO=3gD82
 R0
 R1
-w1640311510
+w1643755938
 8G:/VP/hdl/Mem/ram.v
 FG:/VP/hdl/Mem/ram.v
-L0 5
+L0 4
 R2
 r1
 !s85 0
@@ -220,6 +220,27 @@ r1
 R6
 !s107 G:/VP/hdl/Mem/ram.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/ram.v|
+!i113 1
+R3
+R4
+vram_tb
+R5
+!i10b 1
+!s100 Nn6z_FhO4FWZf[3zakXXh2
+I0SRkd]TEEnJ7AIZ9<fccN0
+R0
+R1
+w1643738399
+8G:/VP/hdl/Mem/ram_tb.v
+FG:/VP/hdl/Mem/ram_tb.v
+L0 1
+R2
+r1
+!s85 0
+31
+Z8 !s108 1643826926.000000
+!s107 G:/VP/hdl/Mem/ram_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/Mem/ram_tb.v|
 !i113 1
 R3
 R4
@@ -247,51 +268,95 @@ Z12 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/reg.v|
 R3
 R4
 vregFile
-R7
+!s110 1644056361
 !i10b 1
-!s100 ;XUQ^]:d0XN2V:?m;E14m0
-IjX=<hb9?oCZYLN>7?fS8h2
+!s100 ]]8YAgi7z]29f6cz4Gk720
+IZT3K1NE82z:I7oOdoX0YU0
 R0
 R1
-w1634238001
+w1644056283
 8G:/VP/hdl/regFile/regFile.v
 FG:/VP/hdl/regFile/regFile.v
-L0 5
+L0 4
 R2
 r1
 !s85 0
 31
-R8
+!s108 1644056361.000000
 !s107 G:/VP/hdl/regFile/regFile.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/regFile.v|
 !i113 1
 R3
 R4
 nreg@file
-vregGen
-R7
+vregFile_tb
+!s110 1644056069
 !i10b 1
-!s100 <:8J;gm]X=ei6C]G?KS1U2
-IYF@^hcOfFInofd?794QkD0
+!s100 CjmEJoGa@?FZbU6=]Ldjj2
+Igb=ld>2FeKj??3FgdKP^`3
 R0
 R1
-w1635711423
-R9
-R10
-L0 4
+w1644056029
+8G:/VP/hdl/regFile/regFile_tb.v
+FG:/VP/hdl/regFile/regFile_tb.v
+L0 1
 R2
 r1
 !s85 0
 31
-R8
+!s108 1644056068.000000
+!s107 G:/VP/hdl/regFile/regFile_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/regFile_tb.v|
+!i113 1
+R3
+R4
+nreg@file_tb
+vregGen
+!s110 1644062451
+!i10b 1
+!s100 QM7AS;[V6XKAcIN^CWGdo2
+I:8HhPMROhgk<z[nR]e^m61
+R0
+R1
+w1644062444
+R9
+R10
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1644062451.000000
 R11
 R12
 !i113 1
 R3
 R4
 nreg@gen
-vshReg
+vregGen_tb
 R5
+!i10b 1
+!s100 ozTECZUQJIm6b`<Lk:6ek2
+IUZX]ai9ma;17n?1TTLdKP3
+R0
+R1
+w1643735511
+8G:/VP/hdl/regFile/reg_tb.v
+FG:/VP/hdl/regFile/reg_tb.v
+L0 1
+R2
+r1
+!s85 0
+31
+R8
+!s107 G:/VP/hdl/regFile/reg_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/regFile/reg_tb.v|
+!i113 1
+R3
+R4
+nreg@gen_tb
+vshReg
+R7
 !i10b 1
 !s100 FS4Mb6;Zg2iaSiQ^0oTL40
 I3_6EH1QPL3kkWb@M:`fT`3
@@ -313,13 +378,13 @@ R3
 R4
 nsh@reg
 vtop
-R7
+!s110 1644066508
 !i10b 1
-!s100 o1P5^Q:3nh7@N9?oaXi4=1
-IAVL^abJi0n0XJ`IKoWQMY3
+!s100 YQ8Cjg<EiVTdchIA4eI0M3
+IAUgmY^Ch8mTjXE5Em1lm92
 R0
 R1
-w1635275687
+w1644066503
 8G:/VP/hdl/topProc.v
 FG:/VP/hdl/topProc.v
 L0 7
@@ -327,14 +392,14 @@ R2
 r1
 !s85 0
 31
-R8
+!s108 1644066508.000000
 !s107 G:/VP/hdl/topProc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|G:/VP/hdl/topProc.v|
 !i113 1
 R3
 R4
 vtsb
-R5
+R7
 !i10b 1
 !s100 4><S5a^N]<VkfmkX<Kz5i1
 IEz8Lf_96c_V58>^2V30G<1

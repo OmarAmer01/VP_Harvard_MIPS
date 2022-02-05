@@ -13,21 +13,29 @@ ALU UUT(.carryFlag(carryFlag), .signFlag(signFlag), .zeroFlag(zeroFlag), .result
 
 integer lineNo, out;
 initial begin
+    #10 a = 32'habcd_abcd;
+    b = 32'habcd_abcd;
+    opSel = 4'ha;
+    #10;
+    // out = $fopen("G:/VP/hdl/ALU/aluOut.txt", "w");
 
-    out = $fopen("G:/VP/hdl/ALU/aluOut.txt", "w");
+    // $display("Started Read");
+    // $readmemh("G:/VP/hdl/ALU/testVector.txt", file);
+    // $display("DONE");
 
-    $display("Started Read");
-    $readmemh("G:/VP/hdl/ALU/testVector.txt", file);
-    $display("DONE");
+    // for (lineNo = 0; lineNo<15362 ;lineNo=lineNo+1) begin
+    //     #10 {a, b, opSel} = file[lineNo];
+    //     #10 $fwrite(out, "%h_%b_%b_%b\n",result, carryFlag, signFlag, zeroFlag);
+    // end
+    // $fclose(out);
 
-    for (lineNo = 0; lineNo<15362 ;lineNo=lineNo+1) begin
-        #10 {a, b, opSel} = file[lineNo];
-        #10 $fwrite(out, "%h_%b_%b_%b\n",result, carryFlag, signFlag, zeroFlag);
-    end
-    $fclose(out);
+    #10
+
     $finish;
 end
 
-
+initial begin
+    $monitor("RES: %h \n zf : %b \n sf : %b \n cf : \n", result, zeroFlag, signFlag, carryFlag);
+end
 
 endmodule
