@@ -15,12 +15,11 @@ module ctr #(parameter width  = 10) (
 
 reg [width-1:0] ctrOutAux;
 
-always @(negedge rst) begin
-    ctrOutAux = {(width+1){1'b1}};
-end
 
 always @(posedge clk) begin
-        if(en) begin
+        if (rst)
+            ctrOutAux <= {(width){1'b1}};
+        else if(en) begin
             if (dir==1) // Increment
                 ctrOutAux = ctrOutAux+1;
             else if (dir==0) // Decrement

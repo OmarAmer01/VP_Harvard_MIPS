@@ -27,7 +27,6 @@ module regFile (
             end
         end
         else if (sto) begin
-            
             if (mul) begin
                 regFile[3] <= dataInExt; // add the upper part of the multiplication operation to the DX register
                 regFile[0] <= dataIn; // LOWER TO AX

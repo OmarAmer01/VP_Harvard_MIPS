@@ -338,7 +338,7 @@ always @(*) begin
         aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
-        sto = 0;
+        sto = 1;
         memAddrSel = 1'b1 ;
         memAddr = 11'b0;
         stk = 1'b0;

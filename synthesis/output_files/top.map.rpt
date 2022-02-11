@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Thu Feb 10 13:33:20 2022
+Fri Feb 11 15:24:40 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -52,7 +52,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Feb 10 13:33:20 2022       ;
+; Analysis & Synthesis Status        ; Successful - Fri Feb 11 15:24:40 2022       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; top                                         ;
 ; Top-level Entity Name              ; top                                         ;
@@ -5417,7 +5417,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -5427,7 +5427,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Feb 10 13:33:05 2022
+    Info: Processing started: Fri Feb 11 15:24:23 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -5478,7 +5478,11 @@ Info (12127): Elaborating entity "top" for the top level hierarchy
 Warning (10858): Verilog HDL warning at topProc.v(32): object memOut used but never assigned File: G:/VP/hdl/topProc.v Line: 32
 Warning (10030): Net "memOut" at topProc.v(32) has no driver or initial value, using a default initial value '0' File: G:/VP/hdl/topProc.v Line: 32
 Info (12128): Elaborating entity "ctr" for hierarchy "ctr:ProgCtr" File: G:/VP/hdl/topProc.v Line: 58
+Warning (10230): Verilog HDL assignment warning at ctr.v(24): truncated value with size 32 to match size of target (10) File: G:/VP/hdl/Mem/ctr.v Line: 24
+Warning (10230): Verilog HDL assignment warning at ctr.v(26): truncated value with size 32 to match size of target (10) File: G:/VP/hdl/Mem/ctr.v Line: 26
 Info (12128): Elaborating entity "ctr" for hierarchy "ctr:stkCtr" File: G:/VP/hdl/topProc.v Line: 67
+Warning (10230): Verilog HDL assignment warning at ctr.v(24): truncated value with size 32 to match size of target (11) File: G:/VP/hdl/Mem/ctr.v Line: 24
+Warning (10230): Verilog HDL assignment warning at ctr.v(26): truncated value with size 32 to match size of target (11) File: G:/VP/hdl/Mem/ctr.v Line: 26
 Info (12128): Elaborating entity "irom" for hierarchy "irom:instRom" File: G:/VP/hdl/topProc.v Line: 70
 Warning (10858): Verilog HDL warning at irom.v(9): object rom used but never assigned File: G:/VP/hdl/Mem/irom.v Line: 9
 Info (12128): Elaborating entity "ctrl" for hierarchy "ctrl:ctrl" File: G:/VP/hdl/topProc.v Line: 93
@@ -5514,11 +5518,11 @@ Info (21057): Implemented 20 device resources after synthesis - the final resour
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 10 output pins
     Info (21061): Implemented 8 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
-    Info: Peak virtual memory: 4947 megabytes
-    Info: Processing ended: Thu Feb 10 13:33:20 2022
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:26
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 4949 megabytes
+    Info: Processing ended: Fri Feb 11 15:24:40 2022
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:27
 
 
 +------------------------------------------+

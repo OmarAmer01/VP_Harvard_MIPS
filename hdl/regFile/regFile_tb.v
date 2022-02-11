@@ -23,12 +23,17 @@ initial begin
     sto = 0;
     raddr1 = 0;
     raddr2 = 0;
-    #10;
-    #10;
 
-    #10;
-    #10;
+    #10
 
+    sto = 1;
+    dataIn = 32'hABCD1234;
+    waddr = 1;
+    #10
+    sto = 0;
+    #10;
+    #10 sto = 1;
+    
 
 end
 
