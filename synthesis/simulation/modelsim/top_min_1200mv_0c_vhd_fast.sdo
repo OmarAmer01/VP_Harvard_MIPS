@@ -29,7 +29,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "top")
-  (DATE "02/05/2022 16:35:27")
+  (DATE "02/10/2022 13:33:30")
   (VENDOR "Altera")
   (PROGRAM "Quartus Prime")
   (VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition")
@@ -41,7 +41,7 @@
     (INSTANCE \\port\[0\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (249:249:249) (287:287:287))
+        (PORT i (491:491:491) (566:566:566))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -51,7 +51,7 @@
     (INSTANCE \\port\[1\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (413:413:413) (469:469:469))
+        (PORT i (480:480:480) (554:554:554))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -61,7 +61,7 @@
     (INSTANCE \\port\[2\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (505:505:505) (576:576:576))
+        (PORT i (477:477:477) (543:543:543))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -71,7 +71,7 @@
     (INSTANCE \\port\[3\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (402:402:402) (452:452:452))
+        (PORT i (486:486:486) (555:555:555))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -81,7 +81,7 @@
     (INSTANCE \\port\[4\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (411:411:411) (461:461:461))
+        (PORT i (332:332:332) (388:388:388))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -91,7 +91,7 @@
     (INSTANCE \\port\[5\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (253:253:253) (291:291:291))
+        (PORT i (656:656:656) (762:762:762))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -101,7 +101,7 @@
     (INSTANCE \\port\[6\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (249:249:249) (287:287:287))
+        (PORT i (960:960:960) (1093:1093:1093))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -111,7 +111,7 @@
     (INSTANCE \\port\[7\]\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (431:431:431) (490:490:490))
+        (PORT i (319:319:319) (373:373:373))
         (IOPATH i o (1612:1612:1612) (1615:1615:1615))
       )
     )
@@ -148,7 +148,7 @@
     (INSTANCE \\ram\|ram\[0\]\[0\]\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1616:1616:1616) (1805:1805:1805))
+        (PORT datad (1638:1638:1638) (1829:1829:1829))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -158,7 +158,7 @@
     (INSTANCE \\ram\|ram\[0\]\[0\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )
@@ -172,7 +172,7 @@
     (INSTANCE \\ram\|ram\[0\]\[1\]\~1\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1615:1615:1615) (1803:1803:1803))
+        (PORT datad (1636:1636:1636) (1827:1827:1827))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -182,7 +182,7 @@
     (INSTANCE \\ram\|ram\[0\]\[1\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )
@@ -196,7 +196,7 @@
     (INSTANCE \\ram\|ram\[0\]\[2\]\~2\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1615:1615:1615) (1804:1804:1804))
+        (PORT datad (1636:1636:1636) (1827:1827:1827))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -206,7 +206,7 @@
     (INSTANCE \\ram\|ram\[0\]\[2\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )
@@ -220,7 +220,7 @@
     (INSTANCE \\ram\|ram\[0\]\[3\]\~3\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1613:1613:1613) (1801:1801:1801))
+        (PORT datad (1641:1641:1641) (1832:1832:1832))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -230,7 +230,7 @@
     (INSTANCE \\ram\|ram\[0\]\[3\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )
@@ -244,7 +244,7 @@
     (INSTANCE \\ram\|ram\[0\]\[4\]\~4\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1613:1613:1613) (1801:1801:1801))
+        (PORT datad (1637:1637:1637) (1828:1828:1828))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -254,7 +254,7 @@
     (INSTANCE \\ram\|ram\[0\]\[4\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )
@@ -268,7 +268,7 @@
     (INSTANCE \\ram\|ram\[0\]\[5\]\~5\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1616:1616:1616) (1804:1804:1804))
+        (PORT datad (1640:1640:1640) (1831:1831:1831))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -278,7 +278,7 @@
     (INSTANCE \\ram\|ram\[0\]\[5\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )
@@ -292,7 +292,7 @@
     (INSTANCE \\ram\|ram\[0\]\[6\]\~6\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1614:1614:1614) (1803:1803:1803))
+        (PORT datad (1641:1641:1641) (1832:1832:1832))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -302,7 +302,7 @@
     (INSTANCE \\ram\|ram\[0\]\[6\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )
@@ -316,7 +316,7 @@
     (INSTANCE \\ram\|ram\[0\]\[7\]\~7\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (1614:1614:1614) (1803:1803:1803))
+        (PORT datad (1636:1636:1636) (1826:1826:1826))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
     )
@@ -326,7 +326,7 @@
     (INSTANCE \\ram\|ram\[0\]\[7\]\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (760:760:760) (777:777:777))
+        (PORT clk (752:752:752) (771:771:771))
         (PORT d (37:37:37) (50:50:50))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
       )

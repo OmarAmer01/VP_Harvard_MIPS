@@ -23,7 +23,8 @@ module ctrl (
     output reg pushPop,
     output reg jmp,
     output reg [3:0] jmpType,
-    output reg hlt
+    output reg hlt,
+    output reg mul
     );
 
 
@@ -61,15 +62,15 @@ module ctrl (
 `define immFromInst inst[31:0]
 
 // Opcodes
-// |
-// |
-//  ---> ONE OPERAND
+
 `define NOP  6'b000000
 `define NOT  6'b000001
 `define INC  6'b000010
 `define DEC  6'b000011
 `define IN   6'b000100
 `define OUT  6'b000101
+`define SLL  6'b011101
+`define SRL  6'b011110
 
 
 `define PUSH 6'b000110
@@ -150,7 +151,7 @@ always @(*) begin
         jmp = 0;
         jmpType = `UNCONDITIONAL;
         hlt = 0;
-
+        mul = 0;
     if(rst) begin
         $display("RESETTING CTRL UNIT");
         waddr = 0;
@@ -311,7 +312,7 @@ always @(*) begin
 
     `POP: begin
         $display("POPPING INTO REG ", `OP1);
-         stk = 1;
+        stk = 1;
         ramWen = 1'b0;
         resAddr = 0;
         ld = 1;
@@ -326,7 +327,6 @@ always @(*) begin
         sto = 1;
         memAddrSel = 1;
         memAddr = inst[31:21];
-       
     end 
 
     `MOV: begin
@@ -619,16 +619,16 @@ always @(*) begin
     end 
 
     `MUL: begin
-        $display("MULTIPLYING SRC:", `OP2, " | DST: ", `OP1);
-        waddr = `OP1;
+        $display("MULTIPLYING REG:", `OP2, " | REG: ", `OP1," => RESULT IN DX:AX");
+        mul = 1;
+        waddr = 3'b000; // AX
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluMUL;
         aluOp1 = `DB;
-        aluOp2 = 0;
+        aluOp2 = `DB;
         imm = 0;
         sto = 1'b1;
-        memAddrSel = 1'b1 ;
         memAddr = 11'b0;
         stk = 1'b0;
         ramWen = 1'b0;
@@ -941,7 +941,46 @@ always @(*) begin
         ld = 1'b0;
         pushPop = 0;
         jmp = 1'b0;
-    end  
+    end
+
+    `SLL: begin
+        $display("LEFT SHIFT REG %d", `OP1);
+        waddr = `OP1;
+        raddr1 =`OP1;
+        raddr2 = 0;
+        aluOpSel = `aluSLL;
+        aluOp1 <= `DB;
+        aluOp2 <= 0;
+        imm = 0;
+        sto = 1;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b0;
+    end
+    `SRL: begin
+        $display("RIGHT SHIFT REG %d", `OP1);
+        waddr = `OP1;
+        raddr1 =`OP1;
+        raddr2 = 0;
+        aluOpSel = `aluSRL;
+        aluOp1 <= `DB;
+        aluOp2 <= 0;
+        imm = 0;
+        sto = 1;
+        memAddrSel = 1'b0 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
+        resAddr = 0;
+        ld = 1'b0;
+        pushPop = 0;
+        jmp = 1'b0;
+    end      
 
     default: begin
         $display("CASE NOT FOUND, EXECUTING NOP | FOUND %b INSTEAD.", `OPCODE);

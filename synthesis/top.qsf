@@ -42,21 +42,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:40:54  FEBRUARY 01, 2022"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
-set_global_assignment -name VERILOG_FILE ../hdl/regFile/tsb.v
-set_global_assignment -name VERILOG_FILE ../hdl/regFile/regFile.v
-set_global_assignment -name VERILOG_FILE ../hdl/regFile/reg.v
-set_global_assignment -name VERILOG_FILE ../hdl/regFile/dcd3x8.v
-set_global_assignment -name VERILOG_FILE ../hdl/Mem/ram.v
-set_global_assignment -name VERILOG_FILE ../hdl/Mem/irom.v
-set_global_assignment -name VERILOG_FILE ../hdl/Mem/ctr_tb.v
-set_global_assignment -name VERILOG_FILE ../hdl/Mem/ctr.v
-set_global_assignment -name VERILOG_FILE ../hdl/ALU/shReg.v
-set_global_assignment -name VERILOG_FILE ../hdl/ALU/FA.v
-set_global_assignment -name VERILOG_FILE ../hdl/ALU/ALU_tb.v
-set_global_assignment -name VERILOG_FILE ../hdl/ALU/ALU.v
-set_global_assignment -name VERILOG_FILE ../hdl/topProc.v
-set_global_assignment -name VERILOG_FILE ../hdl/jmpCtrl.v
-set_global_assignment -name VERILOG_FILE ../hdl/ctrlUnit.v
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -72,4 +57,19 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name VERILOG_FILE ../hdl/ALU/shifter.v
+set_global_assignment -name VERILOG_FILE ../hdl/regFile/tsb.v
+set_global_assignment -name VERILOG_FILE ../hdl/regFile/regFile.v
+set_global_assignment -name VERILOG_FILE ../hdl/regFile/reg.v
+set_global_assignment -name VERILOG_FILE ../hdl/regFile/dcd3x8.v
+set_global_assignment -name VERILOG_FILE ../hdl/Mem/ram.v
+set_global_assignment -name VERILOG_FILE ../hdl/Mem/irom.v
+set_global_assignment -name VERILOG_FILE ../hdl/Mem/ctr_tb.v
+set_global_assignment -name VERILOG_FILE ../hdl/Mem/ctr.v
+set_global_assignment -name VERILOG_FILE ../hdl/ALU/FA.v
+set_global_assignment -name VERILOG_FILE ../hdl/ALU/ALU_tb.v
+set_global_assignment -name VERILOG_FILE ../hdl/ALU/ALU.v
+set_global_assignment -name VERILOG_FILE ../hdl/topProc.v
+set_global_assignment -name VERILOG_FILE ../hdl/jmpCtrl.v
+set_global_assignment -name VERILOG_FILE ../hdl/ctrlUnit.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,8 +1,5 @@
 # Omar Tarek Amer
-# 10/6/2021
 # Chasm - Macro assembler for the VP
-# CURRENT VERSION WORKS WITH MODELSIM ONLY
-
 
 from typing import TextIO
 import typing
@@ -32,7 +29,7 @@ class instruction():
 
 
 class validator():
-    opCodesOneOp = ["NOT", "INC", "DEC", "IN", "OUT", "PUSH", "POP"]
+    opCodesOneOp = ["NOT", "INC", "DEC", "IN", "OUT", "PUSH", "POP", "SRL", "SLL"]
 
     opCodesTwoOp = ["MOV", "CMP", "AND", "OR", "XOR",
                     "XNOR", "NOR", "NAND", "ADD", "SUB", "MUL", "DIV"]
@@ -40,9 +37,9 @@ class validator():
     opCodesJMP = ["JMP", "JZ", "JNZ", "JEQ", "JNEQ", "JG", "JL", "JGE", "JLE"]
 
     opCodesTwoOpImm = ["MOVI", "CMPI", "ANDI", "ORI", "XORI",
-                       "XNORI", "NORI", "NANDI", "ADDI", "SUBI", "MULI", "DIVI", "ST", "LD", "SLL", "SRL"]
+                       "XNORI", "NORI", "NANDI", "ADDI", "SUBI", "MULI", "DIVI", "ST", "LD"]
 
-    registers = ["AX", "BX", "CX", "DX", "GX", "EX", "EY", "EZ"]
+    registers = ["AX", "BX", "CX", "DX", "SX", "EX", "EY", "EZ"]
 
     labelDict = {}
 
@@ -288,12 +285,9 @@ class program():
                 mnemonic=mnemonic, op1=None, op2=None))
                 continue
             try:
-                #op1 = inst.split(" ")[0].strip().lstrip(
-                #    ",").split(",")[0].strip()
                 op1 = inst.split(" ")[1].strip().split(",")[0].strip()
             except:
                 op1 = None
-
             try:
                 op2 = inst.split(",")[1].strip().strip(
                     ",").split(";")[0].strip()
@@ -313,7 +307,7 @@ class program():
     def assemble(self):
         instLookUp = {"NOT": 0b000001, "INC": 0b000010, "DEC": 0b000011, "NOP": 0b000000,
                       "IN": 0b000100, "OUT": 0b000101, "PUSH": 0b000110, "POP": 0b000111, "ST": 0b110001, "LD": 0b110000, "MOV": 0b001000, "CMP": 0b001010, "AND": 0b001011, "OR": 0b001100, "XOR": 0b001101,
-                      "XNOR": 0b001110, "NOR": 0b001111, "NAND": 0b010000, "ADD": 0b010001, "SUB": 0b010010, "MUL": 0b010011, "DIV": 0b010100, "HLT":0b111111}
+                      "XNOR": 0b001110, "NOR": 0b001111, "NAND": 0b010000, "ADD": 0b010001, "SUB": 0b010010, "MUL": 0b010011, "DIV": 0b010100, "HLT":0b111111, "SLL": 0b011101, "SRL": 0b011110}
 
         instImmLookUp = {"MOVI": 0b010101, "CMPI": 0b010110, "ANDI": 0b010111, "ORI": 0b011000, "XORI": 0b011001,
                          "XNORI": 0b011010, "NORI": 0b011011, "NANDI": 0b011100, "ADDI": 0b011111, "SUBI": 0b100000, "MULI": 0b100001, "DIVI": 100010}
@@ -321,7 +315,7 @@ class program():
         instJmpLookUp = {"JMP":0b100101, "JZ":0b100110, "JNZ":0b100111, "JEQ":0b101000, "JNEQ":0b101001, "JG":0b101010, "JL":0b101011, "JGE":0b101100, "JLE":0b101101}
 
         regLookUp = {"AX": 0, "BX": 1, "CX": 2,
-                     "DX": 3, "GX": 4, "EX": 5, "EY": 6, "EZ": 7}
+                     "DX": 3, "SX": 4, "EX": 5, "EY": 6, "EZ": 7}
 
         for inst in self.instList:
             try:
@@ -393,16 +387,22 @@ def printFile(file):
     for line in lines:
         print(line)
 
+def main():
 
-IN_FILENAME = 'goodisa'
+    IN_FILENAME = 'goodisa'
 
-file = open('G:/VP/chasm/goodisa.asm')
+    file = open('G:/VP/chasm/goodisa.asm')
 
 
-prog = program(file)
-labels = prog.preProcess()
+    prog = program(file)
+    labels = prog.preProcess()
 
-prog.lex()
-prog.syntaxCheck()
-prog.assemble()
-prog.modelsimMemExport(IN_FILENAME)
+    prog.lex()
+    prog.syntaxCheck()
+    prog.assemble()
+    prog.modelsimMemExport(IN_FILENAME)
+
+
+if __name__ == "__main__":
+    main()
+    

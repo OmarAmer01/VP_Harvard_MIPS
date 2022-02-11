@@ -24,7 +24,10 @@ initial begin
     raddr1 = 0;
     raddr2 = 0;
     #10;
-    
+    #10;
+
+    #10;
+    #10;
 
 
 end

@@ -6,17 +6,16 @@
 
 module top (
     input extClk, rst,
-    inout [7:0] port,
+    output [7:0] port,
     output zeroF,
-    output signF,
-    output [31:0] regA,
-    output [31:0] regB
+    output signF
+
 );
 
     // Wires and regs
     wire invClk;
     wire clk;
-    
+    wire hlt;
 
 
     wire [9:0] instAddr;
@@ -29,6 +28,7 @@ module top (
     wire [31:0] aluRes;
     reg  [31:0] aluOp1, aluOp2;
     wire [1:0]  aluSrcSel1, aluSrcSel2;
+    
     wire [31:0] memOut;
     wire carry, sign, zero;
     wire [2:0] flagsOut;
@@ -44,6 +44,8 @@ module top (
     reg [31:0] progCtrMuxOut;
     wire [3:0] jmpType;
     wire [9:0] jmpLoc;
+    wire [31:0]resultExt;
+    wire ctrlUnitMul;
     wire clkEn;
     // Modules
 
@@ -56,13 +58,13 @@ module top (
                  .jmpLoc(aluRes[9:0]));
 
     
-    ctr #(.width (11)) stkCtr (.clk(clk),
+    ctr #(.width (11)) stkCtr (.clk(~clk),
                                .rst(rst),
                                .en(stk),
                                .dir(pushPop),
                                .ctrOut(stkTop),
                                .jmp(1'b0),
-                               .jmpLoc(11'b0));
+                               .jmpLoc(11'h00));
 
     irom instRom (.addr(instAddr),
                   .data(ctrlUnitInstIn));
@@ -87,6 +89,7 @@ module top (
                    .pushPop(pushPop),
                    .jmp(jmp),
                    .jmpType(jmpType),
+                   .mul(ctrlUnitMul),
                    .hlt(hlt));
 
     regFile regFile (.waddr(waddr),
@@ -98,8 +101,8 @@ module top (
                     .databus1(db1),
                     .databus2(db2),
                     .dataIn(ldMuxOut),
-                    .regA(regA),
-                    .regB(regB));
+                    .mul(ctrlUnitMul),
+                    .dataInExt(resultExt));
 
     ALU ALU (.a(aluOp1),
              .b(aluOp2),
@@ -107,14 +110,10 @@ module top (
              .carryFlag(carry),
              .signFlag(sign),
              .zeroFlag(zero),
-             .result(aluRes));
+             .result(aluRes),
+             .resultExt(resultExt));
 
 
-    // regGen #(3) flags (.d({carry, sign, zero}),
-    //                    .rst(rst),
-    //                    .clk(~clk),
-    //                    .wen(1'b1),
-    //                    .q(flagsOut));
 
     jmpCtrl jmpCtrl (.carry(carry),
                      .sign(sign),
@@ -132,7 +131,7 @@ module top (
              .data(ramData),
              .port(port));
 
-    assign databus1 = db1;
+   // assign databus1 = db1;
     assign zeroF = zero;
     assign signF = sign;
     assign clk = ~hlt && extClk;

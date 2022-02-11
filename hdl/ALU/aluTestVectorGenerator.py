@@ -30,6 +30,7 @@ def makeResultVector(opA :int, opB: int, opSel:int) -> str:
     carryOut = 0
     sign = 0
     zero = 0
+    resultEXT = 0
 
     if opSel == 0:
         result = ~opA
@@ -60,9 +61,9 @@ def makeResultVector(opA :int, opB: int, opSel:int) -> str:
         result = opA - opB
         carryOut = (opA - opB) >> 32
     elif opSel == 11:
-        result = opA
-        #result = opA * opB
-        #carryOut = (opA * opB) >> 32
+        result = opA * opB
+        resultEXT = opA * opB >> 32
+        carryOut = (opA * opB) >> 64
     elif opSel == 12:
         result = opA
         #result = opA // opB
@@ -78,7 +79,7 @@ def makeResultVector(opA :int, opB: int, opSel:int) -> str:
     carryOut &= 1
     sign = (result >> 31) & 1
 
-    vector = hex(result)[2:].zfill(8) +"_"+ hex(carryOut)[2:]+"_" + str(sign) +"_" + hex(zero)[2:]
+    vector = hex(result)[2:].zfill(8) +"_"+ hex(carryOut)[2:]+"_" + str(sign) +"_" + hex(zero)[2:] +"_"+ hex(resultEXT)[2:].zfill(8)
     return vector
 
 

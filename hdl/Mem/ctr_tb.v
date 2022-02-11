@@ -17,8 +17,9 @@ initial begin
     #10 rst = 0;
     $display("RST COMPLETE");
     #200
-    $display("Changing direction");
     dir = 0;
+    $display("Direction Changed");
+
     #200
     dir = 1;
     $display("NOW JUMPING");
@@ -31,12 +32,13 @@ end
 
 always begin
     #10 clk = ~clk;
+   
 end
 
-initial begin
-    $monitor("CTR OUT = %d", ctrOut);
-end
 
+always begin
+    #20 $display(ctrOut);
+end
 
 
 endmodule

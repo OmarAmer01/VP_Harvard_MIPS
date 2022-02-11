@@ -26,6 +26,7 @@ module jmpCtrl (
 
 
 always @(jmpWake) begin
+    jmp = 0;
     if(jmpWake) begin
         case (op)
             `ZERO : begin

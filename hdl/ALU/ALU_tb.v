@@ -8,15 +8,12 @@ wire [31:0] result;
 reg [31:0] a;
 reg [31:0] b;
 reg [3:0] opSel;
+wire [31:0] resultExt;
 
-ALU UUT(.carryFlag(carryFlag), .signFlag(signFlag), .zeroFlag(zeroFlag), .result(result), .a(a), .b(b), .opSel(opSel));
+ALU UUT(.carryFlag(carryFlag), .signFlag(signFlag), .zeroFlag(zeroFlag), .result(result), .a(a), .b(b), .opSel(opSel), .resultExt(resultExt));
 
 integer lineNo, out;
 initial begin
-    #10 a = 32'habcd_abcd;
-    b = 32'habcd_abcd;
-    opSel = 4'ha;
-    #10;
     // out = $fopen("G:/VP/hdl/ALU/aluOut.txt", "w");
 
     // $display("Started Read");
@@ -25,17 +22,20 @@ initial begin
 
     // for (lineNo = 0; lineNo<15362 ;lineNo=lineNo+1) begin
     //     #10 {a, b, opSel} = file[lineNo];
-    //     #10 $fwrite(out, "%h_%b_%b_%b\n",result, carryFlag, signFlag, zeroFlag);
+    //     #10 $fwrite(out, "%h_%b_%b_%b_%h\n",result, carryFlag, signFlag, zeroFlag, resultExt);
     // end
     // $fclose(out);
+    // $finish;
 
-    #10
+    #10 a = 32'habcd1234;
+    b = 32'hffff6969;
+    opSel = 4'hb;
 
-    $finish;
+
 end
 
 initial begin
-    $monitor("RES: %h \n zf : %b \n sf : %b \n cf : \n", result, zeroFlag, signFlag, carryFlag);
+    $monitor("RES = %h_%h | C%b S%b Z%b", resultExt, result, carryFlag, signFlag, zeroFlag);
 end
 
 endmodule

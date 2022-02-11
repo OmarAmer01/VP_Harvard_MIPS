@@ -9,5 +9,4 @@ module irom (
     reg [40:0] rom [1023:0];
     assign data = rom[addr];
 
-
 endmodule
