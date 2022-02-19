@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A 32-bit microprocessor with 46 instructions (including multiplication and division) and 8 X 32 registers and 2048 X 32 Ram with shared stack. An assembler is also availble to write programs on the microprocessor using 8086-like assembly.
+A 32-bit microprocessor with 42 instructions (including multiplication and division) and 8 X 32 registers and 2048 X 32 Ram with shared stack. An assembler is also available to write programs on the microprocessor using 8086-like assembly.
 
 ## Schematic
 
@@ -108,3 +108,41 @@ MOVI CX, 0x28     ; and "0x" for hexadecimal.
 
 ## Run Your Program
 To run your program on the processor, write it in `/chasm/goodisa.asm` and run the *chasm.py* file, then on modelsim, type `do ../test/topTst.do` to run the program.
+
+## Sample Program
+```Assembly
+; This program calculates the fibbonaci number of the number in the DX register.
+
+nop
+nop
+
+@VarInit
+    movi cx, 0x2    ; Iterator
+    movi ax, 0x1    ; Auxillary register
+    movi bx, 0x0    ; Result
+    movi dx, 0d40   ; Input data
+
+    movi ey, 0x1    ; Previous Fibonacci number
+    movi ex, 0x1    ; Before previous Fibonacci number
+    
+
+@Loop
+    cmp cx, dx
+    jeq @EndLoop
+
+    mov bx, ey
+    add bx, ex
+    mov ax, bx
+
+    mov ex, ey
+    mov ey, ax
+
+    addi cx, 0x1
+    
+    jmp @Loop
+@EndLoop
+
+push bx
+
+hlt
+```
