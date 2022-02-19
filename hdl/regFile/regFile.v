@@ -4,6 +4,7 @@
 module regFile (
     output [31:0] databus1,
     output [31:0] databus2,
+    output [7 :0] port,
 
     input [2:0]  waddr,
     input [2:0]  raddr1,
@@ -14,13 +15,14 @@ module regFile (
     input        mul,
     
     input [31:0] dataIn,
-    input [31:0] dataInExt // Mainly used for multiplication
+    input [31:0] dataInExt // Used for multiplication
 );
 
     reg [31:0] regFile [7:0];
 
-    integer i;
+    integer i = 0;
     always @(posedge clk , posedge rst) begin
+        i = 0;
         if (rst) begin
             for (i = 0;i < 8 ; i = i + 1 ) begin
                 regFile[i] <= {32{1'b0}};
@@ -40,6 +42,7 @@ module regFile (
 
 assign databus1 = regFile[raddr1];
 assign databus2 = regFile[raddr2];
+assign port     = regFile[7][7:0];
 
 
 endmodule

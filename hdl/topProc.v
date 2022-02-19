@@ -1,35 +1,27 @@
 // Omar Tarek Amer
-// 8 - 17 - 2021
 // Top Module
 
 
 
 module top (
     input extClk, rst,
-    output [7:0] port,
-    output zeroF,
-    output signF
-
+    output [7:0] port
 );
 
     // Wires and regs
     wire invClk;
     wire clk;
     wire hlt;
-
-
     wire [9:0] instAddr;
     wire [40:0] ctrlUnitInstIn;
     wire [2:0] waddr, raddr1, raddr2;
     wire [3:0] aluOpSel;
-    wire rw, sto;
+    wire sto;
     wire [31:0] imm;
     wire [31:0] db1, db2;
     wire [31:0] aluRes;
-    reg  [31:0] aluOp1, aluOp2;
-    wire [1:0]  aluSrcSel1, aluSrcSel2;
-    
-    wire [31:0] memOut;
+    reg  [31:0] aluOp2;
+    wire aluSrcSel2;
     wire carry, sign, zero;
     wire [2:0] flagsOut;
     wire memAddrSel, stk, ramWen, ld, resAddr;
@@ -47,8 +39,8 @@ module top (
     wire [31:0]resultExt;
     wire ctrlUnitMul;
     wire clkEn;
-    // Modules
 
+    // Modules
     ctr ProgCtr (.clk(clk),
                  .rst(rst),
                  .en(1'b1),
@@ -71,12 +63,10 @@ module top (
 
     ctrl ctrl (.inst(ctrlUnitInstIn),
                    .rst(rst), 
-                   .clk(clk),
                    .waddr(waddr),
                    .raddr1(raddr1),
                    .raddr2(raddr2),
                    .aluOpSel(aluOpSel),
-                   .aluOp1(aluSrcSel1),
                    .aluOp2(aluSrcSel2),
                    .imm(imm),
                    .sto(sto),
@@ -102,9 +92,10 @@ module top (
                     .databus2(db2),
                     .dataIn(ldMuxOut),
                     .mul(ctrlUnitMul),
-                    .dataInExt(resultExt));
+                    .dataInExt(resultExt),
+                    .port(port));
 
-    ALU ALU (.a(aluOp1),
+    ALU ALU (.a(db1),
              .b(aluOp2),
              .opSel(aluOpSel),
              .carryFlag(carry),
@@ -120,37 +111,27 @@ module top (
                      .zero(zero),
                      .op(jmpType),
                      .jmpWake(jmp),
-                     .jmp(progCtrjmp),
-                     .clk(clk));
+                     .jmp(progCtrjmp));
 
     ram ram (.dataIn(aluRes),
              .addr(memMuxAddrOut),
              .wen(ramWen),
              .clk(clk),
              .rst(rst),
-             .data(ramData),
-             .port(port));
+             .data(ramData)
+             );
 
-   // assign databus1 = db1;
-    assign zeroF = zero;
-    assign signF = sign;
+
+
     assign clk = ~hlt && extClk;
     assign invClk = ~clk;
 
-    // MUX
-
+    // MUXes
     always @(*) begin
         // ALU OP MUX
-        case (aluSrcSel1)
-            2'b00: aluOp1 = db1;
-            2'b01: aluOp1 = memOut;
-            default: aluOp1 = db1;
-        endcase
-
         case (aluSrcSel2)
-            2'b00: aluOp2 = db2;
-            2'b01: aluOp2 = memOut;
-            2'b10: aluOp2 = imm;
+            1'b0: aluOp2 = db2;
+            1'b1: aluOp2 = imm;
             default: aluOp2 = db2;
         endcase
 

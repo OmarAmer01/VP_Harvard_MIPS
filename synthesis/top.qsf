@@ -35,7 +35,7 @@
 #
 # -------------------------------------------------------------------------- #
 
-
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE6E22C8
 set_global_assignment -name TOP_LEVEL_ENTITY top
@@ -47,22 +47,22 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (VHDL)"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE ../hdl/Mem/ram.v
 set_global_assignment -name VERILOG_FILE ../hdl/ALU/shifter.v
 set_global_assignment -name VERILOG_FILE ../hdl/regFile/tsb.v
 set_global_assignment -name VERILOG_FILE ../hdl/regFile/regFile.v
 set_global_assignment -name VERILOG_FILE ../hdl/regFile/reg.v
 set_global_assignment -name VERILOG_FILE ../hdl/regFile/dcd3x8.v
-set_global_assignment -name VERILOG_FILE ../hdl/Mem/ram.v
 set_global_assignment -name VERILOG_FILE ../hdl/Mem/irom.v
 set_global_assignment -name VERILOG_FILE ../hdl/Mem/ctr_tb.v
 set_global_assignment -name VERILOG_FILE ../hdl/Mem/ctr.v

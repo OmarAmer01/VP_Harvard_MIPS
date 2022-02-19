@@ -21,9 +21,9 @@ always @(posedge clk) begin
             ctrOutAux <= {(width){1'b1}};
         else if(en) begin
             if (dir==1) // Increment
-                ctrOutAux = ctrOutAux+1;
+                ctrOutAux = ctrOutAux+{{(width-1){1'b0}},1'b1};
             else if (dir==0) // Decrement
-                ctrOutAux = ctrOutAux-1;
+                ctrOutAux = ctrOutAux-{{(width-1){1'b0}},1'b1};
 
             if (jmp)
                 ctrOutAux = jmpLoc;

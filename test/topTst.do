@@ -29,13 +29,12 @@ add wave -position end -radix hex -color green sim:/top/memMuxAddrOut
 
 add wave -position end  sim:/top/progCtrjmp
 
-add wave -position end  sim:/top/zeroF
-add wave -position end  sim:/top/signF
+
 
 # add wave -position end -radix hex -color white  sim:/top/regA
 # add wave -position end -radix hex -color white  sim:/top/regB
 
-add wave -position end -radix hex  sim:/top/aluOp1
+
 add wave -position end -radix hex  sim:/top/aluOp2
 
 # Reset the processor:
@@ -47,4 +46,4 @@ force -freeze sim:/top/rst 0 0
 run
 
 # Load Instructions into IROM:
-mem load -i G:/VP/simulation/goodisa.mem /top/instRom/rom
+# mem load -i G:/VP/simulation/goodisa.mem /top/instRom/rom

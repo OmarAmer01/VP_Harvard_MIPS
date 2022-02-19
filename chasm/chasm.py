@@ -29,7 +29,7 @@ class instruction():
 
 
 class validator():
-    opCodesOneOp = ["NOT", "INC", "DEC", "IN", "OUT", "PUSH", "POP", "SRL", "SLL"]
+    opCodesOneOp = ["NOT", "OUT", "PUSH", "POP", "SRL", "SLL"]
 
     opCodesTwoOp = ["MOV", "CMP", "AND", "OR", "XOR",
                     "XNOR", "NOR", "NAND", "ADD", "SUB", "MUL", "DIV"]
@@ -305,12 +305,12 @@ class program():
                 self.hasError = True
 
     def assemble(self):
-        instLookUp = {"NOT": 0b000001, "INC": 0b000010, "DEC": 0b000011, "NOP": 0b000000,
-                      "IN": 0b000100, "OUT": 0b000101, "PUSH": 0b000110, "POP": 0b000111, "ST": 0b110001, "LD": 0b110000, "MOV": 0b001000, "CMP": 0b001010, "AND": 0b001011, "OR": 0b001100, "XOR": 0b001101,
+        instLookUp = {"NOT": 0b000001, "NOP": 0b000000,
+                       "OUT": 0b000101, "PUSH": 0b000110, "POP": 0b000111, "ST": 0b110001, "LD": 0b110000, "MOV": 0b001000, "CMP": 0b001010, "AND": 0b001011, "OR": 0b001100, "XOR": 0b001101,
                       "XNOR": 0b001110, "NOR": 0b001111, "NAND": 0b010000, "ADD": 0b010001, "SUB": 0b010010, "MUL": 0b010011, "DIV": 0b010100, "HLT":0b111111, "SLL": 0b011101, "SRL": 0b011110}
 
-        instImmLookUp = {"MOVI": 0b010101, "CMPI": 0b010110, "ANDI": 0b010111, "ORI": 0b011000, "XORI": 0b011001,
-                         "XNORI": 0b011010, "NORI": 0b011011, "NANDI": 0b011100, "ADDI": 0b011111, "SUBI": 0b100000, "MULI": 0b100001, "DIVI": 100010}
+        instImmLookUp = {"MOVI": 0b010101, "ANDI": 0b010111, "ORI": 0b011000, "XORI": 0b011001,
+                         "XNORI": 0b011010, "NORI": 0b011011, "NANDI": 0b011100, "ADDI": 0b011111, "SUBI": 0b100000, "MULI": 0b100001, "DIVI": 0b100010}
 
         instJmpLookUp = {"JMP":0b100101, "JZ":0b100110, "JNZ":0b100111, "JEQ":0b101000, "JNEQ":0b101001, "JG":0b101010, "JL":0b101011, "JGE":0b101100, "JLE":0b101101}
 
@@ -371,16 +371,31 @@ class program():
             self.binInstList.append("0" * 41)
 
     def modelsimMemExport(self, fName):
-        #outFile = open('G:/VP/simulation/not.mem', 'w+')
         outFile = open(f"G:\VP\simulation\{fName}.mem", "+w")
         outFile.write("// memory data file (do not edit the following line - required for mem load use)\n// instance=/top/instRom/rom\n// format=mti addressradix=h dataradix=s version=1.0 wordsperline=1\n")
         top: int = 0x3FF
         numOfinsts = len(self.binInstList)
         for lineNo in reversed(range(top+1)):
             outFile.write(f"{hex(lineNo)[2:]}: "+self.binInstList[lineNo]+"\n")
-            pass
         outFile.close()
 
+    def readmembExport(self, fName):
+        outFile = open(f"G:\VP\simulation\{fName}_rmh.mem", "+w")
+        top: int = 0x3FF
+        for lineNo in (range(top+1)):
+            outFile.write(self.binInstList[lineNo]+"\n")
+        outFile.close()
+
+    def quartusMif(self, fName):
+
+        outFile = open(f"G:\VP\simulation\{fName}.mif", "+w")
+        outFile.write("DEPTH = 32; \nWIDTH = 32; \nADDRESS_RADIX = HEX; \nDATA_RADIX = BIN; \nCONTENT\nBEGIN \n")
+        top: int = 0x3FF
+        for lineNo in (range(top+1)):
+            inst = self.binInstList[lineNo]
+            outFile.write(f"{hex(lineNo)[2:]} : {inst[:32]}\n")
+        outFile.write("END;")
+        outFile.close()
 
 def printFile(file):
     lines = file.readlines()
@@ -400,7 +415,7 @@ def main():
     prog.lex()
     prog.syntaxCheck()
     prog.assemble()
-    prog.modelsimMemExport(IN_FILENAME)
+    prog.readmembExport(IN_FILENAME)
 
 
 if __name__ == "__main__":

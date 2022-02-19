@@ -1,17 +1,14 @@
 // Omar Tarek Amer
-// 8 - 25 - 2021
 // Control Unit
 
 module ctrl (
     input rst,
-    input clk,
     input  [40:0] inst,
     output reg [2:0] waddr,
     output reg [2:0] raddr1,
     output reg [2:0] raddr2,
     output reg [3:0]  aluOpSel,
-    output reg [1:0]  aluOp1,
-    output reg [1:0]  aluOp2,
+    output reg        aluOp2,
     output reg [31:0] imm,
     output reg memAddrSel,
     output reg [10:0] memAddr,
@@ -46,10 +43,9 @@ module ctrl (
 `define aluPASSB 14
 
 // ALU Operands
-`define DB  2'b00
-`define RAM 2'b01
-`define IMM 2'b10
-`define ONE 2'b11
+`define DB  1'b0
+`define IMM 1'b1
+
 
 // DEFINETIONS
 
@@ -137,7 +133,6 @@ always @(*) begin
         raddr1 = 0;
         raddr2 = 0;
         aluOpSel = 0;
-        aluOp1 = 0;
         aluOp2 = 0;
         imm = 0;
         sto = 0 ;
@@ -158,7 +153,6 @@ always @(*) begin
         raddr1 = 0;
         raddr2 = 0;
         aluOpSel = 0;
-        aluOp1 = 0;
         aluOp2 = 0;
         imm = 0;
         sto = 0 ;
@@ -185,7 +179,6 @@ always @(*) begin
         waddr = `OP1;
         raddr1 = `OP1;
         aluOpSel = `aluNOT;
-        aluOp1 = `DB;
         sto = 1'b1;
         memAddrSel = 0;
         memAddr = 11'b0;
@@ -198,21 +191,20 @@ always @(*) begin
 
     `ST: begin
         $display("STORE REG ", `OP1, " AT RAM ADDRESS %h", inst[31:21]);
-        waddr <= 0;
-        raddr1 <= `OP1;
-        raddr2 <= 0;
-        aluOpSel <= `aluPASS;
-        aluOp1 <= `DB;
-        aluOp2 <= 0;
-        imm <= 0;
-        sto <= 0 ;
-        memAddrSel <= 0;
-        memAddr <= inst[31:21];
-        stk <= 0;
-        ramWen <= 1'b1;
-        resAddr <= 0;
-        ld <= 0;
-        pushPop <= 0;
+        waddr = 0;
+        raddr1 = `OP1;
+        raddr2 = 0;
+        aluOpSel = `aluPASS;
+        aluOp2 = 0;
+        imm = 0;
+        sto = 0 ;
+        memAddrSel = 0;
+        memAddr = inst[31:21];
+        stk = 0;
+        ramWen = 1'b1;
+        resAddr = 0;
+        ld = 0;
+        pushPop = 0;
     end  
 
     `LD: begin
@@ -221,7 +213,6 @@ always @(*) begin
         raddr1 = 0;
         raddr2 = 0;
         aluOpSel = `aluPASS;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1;
@@ -234,60 +225,22 @@ always @(*) begin
         pushPop = 0;
     end 
 
-    `INC: begin
-        $display("INCREMENTING REG ", `OP1);
-        waddr = `OP1;
-        raddr1 = `OP1;
-        raddr2 = 0;
-        aluOpSel = `aluADD;
-        aluOp1 = 0;
-        aluOp2 = 2'b11;
-        imm = 0;
-        sto = 1'b1 ;
-        memAddrSel = 0;
-        memAddr = 11'b0;
-        stk = 0;
-        ramWen =1'b0;
-        resAddr = 0;
-        ld = 0;
-        pushPop = 0;
-    end  
-
-    `DEC: begin
-        $display("DECREMENTING REG ", `OP1);
-        waddr = `OP1;
-        raddr1 = `OP1;
-        raddr2 = 0;
-        aluOpSel = `aluSUB;
-        aluOp1 = 0;
-        aluOp2 = `ONE;
-        imm = 0;
-        sto = 1'b1 ;
-        memAddrSel = 0;
-        memAddr = 0;
-        stk = 0;
-        ramWen =1'b0;
-        resAddr = 0;
-        ld = 0;
-        pushPop = 0;
-    end  
 
     `OUT: begin
-        $display("OUTPUT LOWER 8-BITS OF REG ", `OP1);
-        waddr = 0;
-        raddr1 = `OP1;
+        $display("OUT");
+        waddr = `OP1;
+        raddr1 =`OP2;
         raddr2 = 0;
         aluOpSel = `aluPASS;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
-        sto = 0 ;
-        memAddrSel = 0;
-        memAddr = 1;
-        stk = 0;
-        ramWen = 1'b1;
+        sto = 1;
+        memAddrSel = 1'b1 ;
+        memAddr = 11'b0;
+        stk = 1'b0;
+        ramWen = 1'b0;
         resAddr = 0;
-        ld = 0;
+        ld = 1'b0;
         pushPop = 0;
     end
 
@@ -297,7 +250,6 @@ always @(*) begin
         raddr1 = `OP1;
         raddr2 = 0;
         aluOpSel = `aluPASS;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 0 ;
@@ -321,7 +273,6 @@ always @(*) begin
         raddr1 = 0;
         raddr2 = 0;
         aluOpSel = `aluPASS;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1;
@@ -335,7 +286,6 @@ always @(*) begin
         raddr1 =`OP2;
         raddr2 = 0;
         aluOpSel = `aluPASS;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1;
@@ -354,7 +304,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -373,7 +322,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluOR;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -392,7 +340,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluOR;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -411,7 +358,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluXOR;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -431,7 +377,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluXNOR;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -452,7 +397,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluXNOR;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -472,7 +416,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluNOR;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -491,7 +434,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluXOR;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -510,7 +452,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluNAND;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -529,7 +470,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluNAND;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -548,7 +488,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluADD;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -567,7 +506,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluADD;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -586,7 +524,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluSUB;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -605,7 +542,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluSUB;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -625,7 +561,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluMUL;
-        aluOp1 = `DB;
         aluOp2 = `DB;
         imm = 0;
         sto = 1'b1;
@@ -643,7 +578,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluMUL;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -662,7 +596,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluDIV;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 1'b1;
@@ -681,7 +614,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluDIV;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -700,7 +632,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluAND;
-        aluOp1 = `DB;
         aluOp2 = 0;
         imm = 0;
         sto = 0;
@@ -719,7 +650,6 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluAND;
-        aluOp1 = `DB;
         aluOp2 = `IMM;
         imm = `immFromInst;
         sto = 1;
@@ -738,7 +668,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -759,7 +688,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -780,7 +708,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -801,7 +728,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -822,7 +748,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -843,7 +768,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -865,7 +789,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -887,7 +810,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -908,7 +830,6 @@ always @(*) begin
         raddr1 =0;
         raddr2 = 0;
         aluOpSel = `aluPASSB;
-        aluOp1 = 0;
         aluOp2 = `IMM;
         imm = inst[34:25];
         sto = 0;
@@ -929,8 +850,7 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = `OP2;
         aluOpSel = `aluSUB;
-        aluOp1 <= `DB;
-        aluOp2 <= `DB;
+        aluOp2 = `DB;
         imm = 0;
         sto = 0;
         memAddrSel = 1'b0 ;
@@ -949,8 +869,7 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluSLL;
-        aluOp1 <= `DB;
-        aluOp2 <= 0;
+        aluOp2 = 0;
         imm = 0;
         sto = 1;
         memAddrSel = 1'b0 ;
@@ -968,8 +887,7 @@ always @(*) begin
         raddr1 =`OP1;
         raddr2 = 0;
         aluOpSel = `aluSRL;
-        aluOp1 <= `DB;
-        aluOp2 <= 0;
+        aluOp2 = 0;
         imm = 0;
         sto = 1;
         memAddrSel = 1'b0 ;
@@ -989,7 +907,6 @@ always @(*) begin
         raddr2 = 0;
         //rw = `READ;
         aluOpSel = 0;
-        aluOp1 = 0;
         aluOp2 = 0;
         imm = 0;
         sto = 0 ;

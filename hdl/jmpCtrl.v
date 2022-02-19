@@ -2,7 +2,6 @@ module jmpCtrl (
     input carry,
     input sign,
     input zero,
-    input clk,
 
     input [3:0] op,
 
@@ -26,72 +25,71 @@ module jmpCtrl (
 
 
 always @(jmpWake) begin
-    jmp = 0;
+    jmp = 1'b0;
     if(jmpWake) begin
         case (op)
             `ZERO : begin
                 if(zero) begin
                     $display("JUMPING ON ZERO");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
 
             `NOTZERO : begin
                 if(~zero) begin
                     $display("JUMPING ON NOT ZERO");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
 
             `EQUAL : begin
                 if(zero) begin
                     $display("JUMPING ON EQUAL");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
             `NOTEQUAL : begin
                 if(~zero) begin
                     $display("JUMPING ON NOT EQUAL");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
 
             `GREATER : begin
                 if(~sign && ~zero) begin
                     $display("JUMPING ON GREATER");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
 
             `LESS : begin
                 if(sign && ~zero) begin
                     $display("JUMPING ON LESS");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
 
             `GREATEQUAL : begin
                 if(~sign || zero) begin
                     $display("JUMPING ON GREATER EQUAL");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
             `LESSEQUAL : begin
                 if(sign || zero) begin
                     $display("JUMPING ON LESS EQUAL");
-                    jmp = 1;
+                    jmp = 1'b1;
                 end
             end
             `UNCONDITIONAL : begin
                 $display("JUMPING UNCONDITIONALLY");
-                jmp = 1;
+                jmp = 1'b1;
             end 
-            default: jmp = 0;
+            default: jmp = 1'b0;
         endcase
     end
     else begin
-        //$display("JUMP CONDITION NOT MET");
-        jmp = 0;
+        jmp = 1'b0;
     end
 end
 

@@ -1,4 +1,11 @@
-G:/VP/hdl/regFile/reg_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/reg_tb.v
+G:/VP/hdl/regFile/regFile_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/regFile_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module regFile_tb
+
+Top level modules:
+	regFile_tb
+
+} {} {}} G:/VP/hdl/regFile/reg_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/regFile/reg_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module regGen_tb
 
@@ -54,13 +61,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	ram
 
-} {} {}} G:/VP/hdl/Mem/ctr.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ctr.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ctr
-
-Top level modules:
-	ctr
-
 } {} {}} G:/VP/hdl/topProc.v {1 {vlog -work work -stats=none G:/VP/hdl/topProc.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module top
@@ -68,12 +68,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	top
 
-} {} {}} G:/VP/hdl/ALU/ALU_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/ALU_tb.v
+} {} {}} G:/VP/hdl/Mem/ctr.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ctr.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALU_tb
+-- Compiling module ctr
 
 Top level modules:
-	ALU_tb
+	ctr
 
 } {} {}} G:/VP/hdl/ALU/FA.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/FA.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -82,12 +82,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	FA
 
-} {} {}} G:/VP/hdl/ALU/shifter_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/shifter_tb.v
+} {} {}} G:/VP/hdl/ALU/ALU_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/ALU_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module shifter_tb
+-- Compiling module ALU_tb
 
 Top level modules:
-	shifter_tb
+	ALU_tb
+
+} {} {}} G:/VP/hdl/Mem/ram_bb.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ram_bb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ramNEW
+
+Top level modules:
+	ramNEW
+
+} {} {}} G:/VP/hdl/ALU/ALU.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/ALU.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ALU
+
+Top level modules:
+	ALU
 
 } {} {}} G:/VP/hdl/Mem/ram_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/Mem/ram_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -96,12 +110,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	ram_tb
 
-} {} {}} G:/VP/hdl/ALU/ALU.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/ALU.v
+} {} {}} G:/VP/hdl/ALU/shifter_tb.v {1 {vlog -work work -stats=none G:/VP/hdl/ALU/shifter_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALU
+-- Compiling module shifter_tb
 
 Top level modules:
-	ALU
+	shifter_tb
 
 } {} {}} G:/VP/hdl/jmpCtrl.v {1 {vlog -work work -stats=none G:/VP/hdl/jmpCtrl.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

@@ -5,8 +5,16 @@ module irom (
     output [40:0] data
     
 );
-    reg [40:0] dataOut;
+
+    initial begin
+        $readmemb("G:/VP/simulation/goodisa_rmh.mem", rom);
+    end
+
+   
     reg [40:0] rom [1023:0];
+
+
+
     assign data = rom[addr];
 
 endmodule

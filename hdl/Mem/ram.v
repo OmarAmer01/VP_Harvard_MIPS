@@ -2,8 +2,7 @@
 // RAM
 
 module ram (
-    output  [31:0] data,
-    output  [7:0] port,
+    output reg  [31:0] data,
     input [31:0] dataIn,
     input [10:0] addr,
     input wen,
@@ -14,25 +13,30 @@ module ram (
 reg  [31:0] ram [2047:0];
 reg [31:0] dataAux;
 //assign dataAux = ram[addr];
-integer i;
 
+// initial begin
+//     $readmemb("G:/VP/simulation/ZEROS.mem", ram);
+// end
 
     
 always @(posedge clk) begin
-    if (rst) begin
-        for (i = 0; i<2048 ;i = i + 1 ) begin
-            ram[i] = 32'b0;
-        end
-    end
-    else begin
+    // if (rst) begin
+    //     for (i = 0; i<2048 ;i = i + 1 ) begin
+    //         ram[i] = 32'b0;
+    //     end
+    // end
             if (wen) begin
                 ram[addr] <= dataIn;
+                data = dataIn;
+            end
+            else begin
+                data = ram[addr];
             end
     end
 
-    end
+    
 
-assign data = ram[addr];
-assign port = ram[0][7:0];
+//assign data = ram[addr];
+//assign port = ram[0][7:0];
 
 endmodule

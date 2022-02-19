@@ -1,4 +1,4 @@
-set tool_name "ModelSim (VHDL)"
+set tool_name "ModelSim-Altera (VHDL)"
 set corner_file_list {
     {{"Slow -8 1.2V 85 Model"} {top_8_1200mv_85c_slow.vho top_8_1200mv_85c_vhd_slow.sdo}}
     {{"Slow -8 1.2V 0 Model"} {top_8_1200mv_0c_slow.vho top_8_1200mv_0c_vhd_slow.sdo}}

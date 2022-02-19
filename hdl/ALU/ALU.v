@@ -17,21 +17,21 @@ module ALU(
 
 // OP CODES
 
-`define NOT   0
-`define AND   1
-`define OR    2
-`define XOR   3
-`define XNOR  4
-`define NOR   5
-`define NAND  6
-`define SLL   7
-`define SRL   8
-`define ADD   9
-`define SUB   10
-`define MUL   11
-`define DIV   12
-`define PASS  13
-`define PASSB 14
+`define alu_NOT   0
+`define alu_AND   1
+`define alu_OR    2
+`define alu_XOR   3
+`define alu_XNOR  4
+`define alu_NOR   5
+`define alu_NAND  6
+`define alu_SLL   7
+`define alu_SRL   8
+`define alu_ADD   9
+`define alu_SUB   10
+`define alu_MUL   11
+`define alu_DIV   12
+`define alu_PASS  13
+`define alu_PASSB 14
 
 // ================
 
@@ -56,55 +56,50 @@ always @(*) begin
     resultExt = 32'b0;
     // RESULT
     case (opSel)
-        `NOT:  `aluRes = ~a;
-        `AND:  `aluRes = a & b;
-        `OR:   `aluRes = a | b;
-        `XOR:  `aluRes = a ^ b;
-        `XNOR: `aluRes = a ~^ b;
-        `NOR:  `aluRes = ~(a | b);
-        `NAND: `aluRes = ~(a & b);
-        `SLL:   begin
-                     shDir = 1;
-                    `aluRes = shRes;
-                end
+        `alu_NOT:  `aluRes = ~a;
+        `alu_AND:  `aluRes = a & b;
+        `alu_OR:   `aluRes = a | b;
+        `alu_XOR:  `aluRes = a ^ b;
+        `alu_XNOR: `aluRes = a ~^ b;
+        `alu_NOR:  `aluRes = ~(a | b);
+        `alu_NAND: `aluRes = ~(a & b);
+        `alu_SLL:   begin
+                         shDir = 1;
+                        `aluRes = shRes;
+                    end
 
-        `SRL:   begin
-                     shDir = 0;
-                    `aluRes = shRes;
-                end 
-        `ADD:  `aluRes = faRes; 
-        `SUB:  `aluRes = fsRes;
-        `PASS: `aluRes = a;
+        `alu_SRL:   begin
+                         shDir = 0;
+                        `aluRes = shRes;
+                    end 
+        `alu_ADD:  `aluRes = faRes; 
+        `alu_SUB:  `aluRes = fsRes;
+        `alu_PASS: `aluRes = a;
 
-        `MUL: {resultExt, `aluRes} = a*b;
-        `DIV: `aluRes = a/b;
-        // op:
-        `PASSB: `aluRes = b;
-        default: `aluRes = a;
+        `alu_MUL: {resultExt, `aluRes} = a*b;
+        `alu_DIV: `aluRes = a/b;
+        `alu_PASSB: `aluRes = b;
+           default: `aluRes = a;
     endcase
 
     // CARRY FLAG
         case (opSel) 
-        `NOT:  `carryBit = 0;
-        `AND:  `carryBit = 0;
-        `OR:   `carryBit = 0;
-        `XOR:  `carryBit = 0;
-        `XNOR: `carryBit = 0;
-        `NOR:  `carryBit = 0;
-        `NAND: `carryBit = 0;
-        // op:
-        // op:
-         `ADD: `carryBit = faCout;
-         `SUB: `carryBit = ~fsCout;
-         `PASS: `carryBit = 0;
-        // op:
-        // op:
-        `SLL: `carryBit = a[31];
-        `SRL: `carryBit = a[0];
+        `alu_NOT:  `carryBit = 0;
+        `alu_AND:  `carryBit = 0;
+        `alu_OR:   `carryBit = 0;
+        `alu_XOR:  `carryBit = 0;
+        `alu_XNOR: `carryBit = 0;
+        `alu_NOR:  `carryBit = 0;
+        `alu_NAND: `carryBit = 0;
+        `alu_ADD: `carryBit = faCout;
+        `alu_SUB: `carryBit = ~fsCout;
+        `alu_PASS: `carryBit = 0;
+        `alu_SLL: `carryBit = a[31];
+        `alu_SRL: `carryBit = a[0];
         default: `carryBit = 0;
     endcase
 
-    // // ZERO FLAG
+    // ZERO FLAG
     if (`aluRes == 0) begin
         auxZero = 1'b1;
     end 
