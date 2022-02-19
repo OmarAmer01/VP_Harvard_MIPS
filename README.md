@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A 32-bit microprocessor with 42 instructions (including multiplication and division) and 8 X 32 registers and 2048 X 32 Ram with shared stack. An assembler is also availble to write programs on the microprocessor using 8086-like assembly.
+A 32-bit microprocessor with 42 instructions (including multiplication and division) and 8 X 32 registers and 2048 X 32 Ram with shared stack. An assembler is also available to write programs on the microprocessor using 8086-like assembly.
 
 ## Schematic
 
