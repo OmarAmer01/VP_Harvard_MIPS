@@ -1,5 +1,12 @@
 # 32-Bit MIPS Processor (Harvard Architecture)
-
+- [32-Bit MIPS Processor (Harvard Architecture)](#32-bit-mips-processor-harvard-architecture)
+  - [Introduction](#introduction)
+  - [Schematic](#schematic)
+  - [Registers](#registers)
+  - [Instruction List](#instruction-list)
+  - [Language Rules](#language-rules)
+  - [Run Your Program](#run-your-program)
+  - [Sample Program](#sample-program)
 ## Introduction
 
 A 32-bit microprocessor with 42 instructions (including multiplication and division) and 8 X 32 registers and 2048 X 32 Ram with shared stack. An assembler is also available to write programs on the microprocessor using 8086-like assembly.
